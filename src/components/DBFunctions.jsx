@@ -1,37 +1,24 @@
 import { useEffect, useState } from 'react';
-import { collection, doc, query, getDocs, addDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { ref, getStorage, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebase';
 
-export function QueryCats(table, predicate) {
-    const [cats, setCats] = useState();
-    const attributes = {name:'', collar:'', colour:'', date:'', adj:'', sex:'', father:'', mother:''};
-    const q = query(collection(db, table));
-    
-    const fetchCats = async () => {
-        await getDocs(collection(db, table))
-            .then((querySnapshot)=>{
-                const fetchedData = querySnapshot.docs.map((doc) => ({
-                    ...doc.data(), id:doc.id
-                }))
-                setCats(fetchedData);
-            }).then((cats) => {
-                console.log(cats);
-                return cats;
-            });
-    };
+export async function QueryCats(table, predicate = []) {
+    const cats = [];
+    const q = query(collection(db, table), where(predicate[0], predicate[1], predicate[2]));
 
-    useEffect(()=>{
-        fetchCats();
-    }, []);
+    const docRefs = await getDocs(q);
+
+    docRefs.forEach(doc => {
+        cats.push({...doc.data(), id: doc.id});
+    })
+    
+    return cats;
 }
 
 export function InsertCat(table, cat) {
     const { name, collar, colour, sex, adj, date, cattery, location, mother, father } = cat;
-    var id = name;
-
-    if (date) {
-        id = id + '.' + date;
-    }
+    const id = GetCatID(name, date);
 
     const addCat = async () => {
         const docRef = doc(db, table, id);
@@ -45,7 +32,47 @@ export function InsertCat(table, cat) {
         });
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         addCat();
     }, []);
 }
+
+export function GetCatID(name, date) {
+    const id = `${name}${date ? `.${date}` : ``}`;
+    
+    return id;
+}
+
+export function UpdateCats(id, table, field, newValue) {
+    const docRef = doc(db, table, id);
+
+    const updateCat = async () => {
+        await updateDoc(docRef, {
+            [field]: [newValue]
+        })
+    };
+
+    useEffect(() => {
+        updateCat();
+    }, []);
+}
+
+export async function GetImage(filepath) {
+    const storage = getStorage();
+    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com${filepath}`));
+
+    return url;
+}
+
+export async function GetAllImages(filepath) {
+    const storage = getStorage();
+    const images = [];
+    
+    const storageRef = await storage.ref().child(filepath).listAll();
+    storageRef.map((image) => {
+        const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com${image}`));
+        images.push(url);
+    })
+  
+    return images;
+  }
