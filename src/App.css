@@ -1,38 +1,253 @@
 .App {
-  text-align: center;
+  color: white;
+  background-image: url('../public/assets/jungle-background.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: scroll !important;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Basic pages */
+
+.page-background {
+text-align: center;
+border-radius: 10pt;
+background-color: rgba(26, 133, 79, 0.85);
+width: 95%;
+padding: 10pt;
+margin: auto;
+margin-top: 30pt;
+margin-bottom: 20pt;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.page-content {
+min-height: 75%;
+max-height: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.paragraph-variant {
+text-align: left;
+width: fit-content;
+margin: auto;
+}
+
+.paragraph-variant-heading {
+text-align: center;
+}
+
+a {
+color: rgb(25, 223, 58);
+}
+
+/* Page components */
+
+.columns-container {
+display: flex;
+padding: 15pt;
+}
+
+.cat-card-column {
+width: fit-content;
+margin: auto;
+margin-bottom: 10pt;
+}
+
+.centre-column {
+width: auto;
+}
+
+.list-container {
+text-align: left;
+width: fit-content;
+max-width: 60%;
+margin: auto;
+}
+
+.item-container {
+display: flex;
+padding: 10pt;
+}
+
+.side-img {
+border-radius: 10pt;
+display: block;
+max-width: 90%;
+height: auto;
+margin: auto;
+object-fit: contain;
+}
+
+.centre-img {
+border-radius: 10pt;
+display: block;
+max-width: 100%;
+height: auto;
+object-fit: contain;
+margin-left: 10%;
+}
+
+.video-frame {
+width: 95%;
+}
+
+/* Navigation */
+
+.nav-bar {
+  background-color: rgba(0, 10, 0, 0.75) !important;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.logo-link {
+height: 100%;
+display: flex;
+text-decoration: none;
+}
+
+.logo-img {
+height: 50pt;
+width: auto;
+}
+
+.logo-text {
+font-size: x-large;
+color: white;
+font-style: italic;
+height: auto;
+line-height: normal;
+margin-top: 8pt;
+padding: 5pt;
+}
+
+.nav-link {
+color: rgb(236, 236, 236) !important;
+padding: 10px 15px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.nav-link.active {
+color: rgba(25, 223, 58, 0.911) !important;
+}
+
+.dropdown-links-container {
+color: rgb(236, 236, 236);
+text-align: center;
+}
+
+.dropdown-link {
+color: rgb(236, 236, 236);
+}
+
+.dropdown-menu {
+background-color: rgba(0, 10, 0, 0.75) !important;
+}
+
+/* Footer */
+
+.footer {
+  background-color: rgba(0, 10, 0, 0.6);
+  width: 100%;
+  bottom: 0;
+}
+
+.cert-container {
+  margin-left: 100pt;
+  margin-right: 100pt;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.cert {
+  height: 50pt;
+  width: auto;
+  margin: 10pt;
+}
+
+.social-container {
+display: flex;
+justify-content: center;
+font-size: 2rem;
+}
+
+.social-icon {
+  margin-left: 5pt;
+  margin-right: 5pt;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover{
+color: rgb(25, 223, 58);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Cat Cards */
+
+.cat-card-carousel {
+background-color: rgba(0, 0, 0, 0.4);
+border-radius: 10pt;
+width: 95%;
+padding: 10pt;
+margin: auto;
+margin-top: 20pt;
+}
+
+.card-container {
+border-radius: 10pt;
+width: 95%;
+margin: auto;
+margin-bottom: 10pt;
+}
+
+.cat-card {
+border-radius: 10pt;
+cursor: pointer;
+color: green;
+background-color: white;
+text-align: center;
+width: 90%;
+}
+
+.cat-img {
+width: 100%;
+}
+
+.cat-text {
+color:green;
+background-color: white;
+font-size: larger;
+}
+
+.cat-modal {
+width: 90%;
+}
+
+/* Accordion Menu */
+
+.accordion {
+border-radius: 10pt;
+width: 95%;
+margin: auto;
+margin-top: 30pt;
+margin-bottom: 20pt;
+}
+
+.accordion-button:not(.collapsed) {
+background-color: white;
+}
+
+.accordion-header-text {
+color:green;
+font-size: large;
+}
+
+.accordion-item {
+color: white;
+background-color: rgba(0, 10, 0, 0.75);
 }
