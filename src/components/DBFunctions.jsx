@@ -5,7 +5,13 @@ import { db } from '../firebase';
 
 export async function QueryCats(table, predicate = []) {
     const cats = [];
-    const q = query(collection(db, table), where(predicate[0], predicate[1], predicate[2]));
+    var q;
+
+    if (predicate.length == 0) {
+        q = query(collection(db, table));
+    } else {
+        q = query(collection(db, table), where(predicate[0], predicate[1], predicate[2]));
+    }
 
     const docRefs = await getDocs(q);
 
