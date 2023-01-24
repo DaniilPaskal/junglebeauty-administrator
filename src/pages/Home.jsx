@@ -1,6 +1,4 @@
-import AddCats from "./AddCats";
-import ViewCats from "./ViewCats";
-import News from "./News";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
