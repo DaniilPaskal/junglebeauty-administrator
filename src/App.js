@@ -3,11 +3,13 @@ import Home from './pages/Home';
 import AddCats from './pages/AddCats';
 import ViewCats from './pages/ViewCats';
 import News from './pages/News';
+import Navigation from './components/Navigation';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Navigation />
       <div className='page-content'>
         <Routes>
           <Route index element={<Home />} />
