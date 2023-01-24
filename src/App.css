@@ -1,9 +1,5 @@
 .App {
   color: white;
-  background-image: url('../public/assets/jungle-background.png');
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
   position: fixed;
   top: 0;
   bottom: 0;
