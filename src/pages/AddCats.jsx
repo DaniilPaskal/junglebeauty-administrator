@@ -1,6 +1,8 @@
+import { useState, useContext } from "react";
 
 const AddCats = () => {
     const [formFields, setFormFields] = useState('');
+    const [type, setType] = useState('parent');
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = formFields;
     
     const resetFormFields = () => {
@@ -20,12 +22,12 @@ const AddCats = () => {
         <div className='sign-up-container'>
             <h2>Add new cat to database:</h2>
             <form onSubmit={handleSubmit}>
-                <FormInput label='Name' required onChange={handleChange} name='name' value={name}/>
-                <FormInput label='Date' required onChange={handleChange} name='date' value={date}/>
-                
+                <label>
+                    
+                </label>
                     
                 <div className='buttons-container'>
-                    <Button type='submit'>Submit</Button>
+                    <button type='submit'>Submit</button>
                 </div>
             </form>
         </div>
