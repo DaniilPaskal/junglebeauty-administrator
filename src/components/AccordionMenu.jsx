@@ -38,11 +38,7 @@ const AccordionMenu = ({ items }) => {
                       </p>
                     </Accordion.Header>
                     <Accordion.Body>
-                      {body.map((line) => {
-                        return (
-                          <p>{line}<br /></p>
-                        );
-                      })}
+                      {body}
                       <button type='edit'>Edit</button>
                     </Accordion.Body>
                 </Accordion.Item>
