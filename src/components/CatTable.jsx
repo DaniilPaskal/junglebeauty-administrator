@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
+import CatRow from './CatRow';
 import './../App.css';
 
 const CatTable = ({ cats }) => {
@@ -18,12 +19,7 @@ const CatTable = ({ cats }) => {
         <tbody>
           {cats.map((cat) => {
             return (
-              <tr key={cat.id}>
-                <td>{cat.id}</td>
-                <td>{cat.name}</td>
-                <td>{cat.date || `N/A`}</td>
-                <td>{cat.status || `N/A`}</td>
-              </tr>
+              <CatRow cat={cat} key={cat.id} />
             );
           })}
         </tbody>
