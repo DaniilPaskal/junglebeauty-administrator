@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { QueryCats } from "../components/DBFunctions";
-import AccordionMenu from "../components/AccordionMenu";
+import CatTable from "../components/CatTable";
 
 const ViewCats = () => {
     const [parents, setParents] = useState([]);
@@ -20,10 +20,10 @@ const ViewCats = () => {
     return (
         <>
             <h2>Parents:</h2>
-            <AccordionMenu items={parents} />
+            <CatTable cats={parents} />
 
             <h2>Kittens:</h2>
-            <AccordionMenu items={kittens} />
+            <CatTable cats={kittens} />
         </>
     );
 }
