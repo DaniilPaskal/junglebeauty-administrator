@@ -12,6 +12,7 @@ const CatTable = ({ cats }) => {
             <th>ID</th>
             <th>Name/Collar</th>
             <th>Birthdate</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,7 @@ const CatTable = ({ cats }) => {
                 <td>{cat.id}</td>
                 <td>{cat.name}</td>
                 <td>{cat.date || `N/A`}</td>
+                <td>{cat.status || `N/A`}</td>
               </tr>
             );
           })}
