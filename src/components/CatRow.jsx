@@ -9,17 +9,17 @@ const CatRow = ({ cat }) => {
 
     return (
         <>
-            <tr onClick={handleShow}>
+            <tr className='cat-row' onClick={handleShow}>
                 <td>{cat.id}</td>
                 <td>{cat.name}</td>
                 <td>{cat.date || `N/A`}</td>
                 <td>{cat.status || `N/A`}</td>
             </tr>
 
-            <Modal show={show} onHid={handleClose} size='lg'>
+            <Modal show={show} onHide={handleClose} size='lg'>
                 <Modal.Header closeButton/>
                 <Modal.Body>
-                    
+
                 </Modal.Body>
             </Modal>
         </>
