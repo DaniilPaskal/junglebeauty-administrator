@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Table, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import './../App.css';
 
 const CatRow = ({ cat }) => {
@@ -8,12 +8,21 @@ const CatRow = ({ cat }) => {
     const handleShow = () => setShow(true);
 
     return (
-        <tr onClick={handleShow}>
-            <td>{cat.id}</td>
-            <td>{cat.name}</td>
-            <td>{cat.date || `N/A`}</td>
-            <td>{cat.status || `N/A`}</td>
-        </tr>
+        <>
+            <tr onClick={handleShow}>
+                <td>{cat.id}</td>
+                <td>{cat.name}</td>
+                <td>{cat.date || `N/A`}</td>
+                <td>{cat.status || `N/A`}</td>
+            </tr>
+
+            <Modal show={show} onHid={handleClose} size='lg'>
+                <Modal.Header closeButton/>
+                <Modal.Body>
+                    
+                </Modal.Body>
+            </Modal>
+        </>
     );
 };
 
