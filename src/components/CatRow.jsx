@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import CatForm from './CatForm';
 import './../App.css';
 
 const CatRow = ({ cat }) => {
@@ -19,7 +20,7 @@ const CatRow = ({ cat }) => {
             <Modal show={show} onHide={handleClose} size='lg'>
                 <Modal.Header closeButton/>
                 <Modal.Body>
-
+                    <CatForm cat={cat} />
                 </Modal.Body>
             </Modal>
         </>
