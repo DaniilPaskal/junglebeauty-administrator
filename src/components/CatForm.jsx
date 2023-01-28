@@ -4,7 +4,7 @@ import './../App.css';
 
 const CatForm = ({ cat }) => {
     const [formFields, setFormFields] = useState('');
-    const [type, setType] = useState('parent');
+    const [type, setType] = useState('kitten');
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = formFields;
     
     const resetFormFields = () => {
@@ -25,22 +25,51 @@ const CatForm = ({ cat }) => {
             <h2>Add new cat to database:</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                {!cat &&
-                <select value={this.state.value}>
-                    <option value='kitten'>Kitten</option>
-                    <option value='parent'>Parent</option>
-                </select>
-                }
+                    {!cat &&
+                    <label>
+                        Cat type:
+                        <select value={this.state.value} onChange={(e) => setType(e.target.value)}>
+                            <option selected value='kitten'>Kitten</option>
+                            <option value='parent'>Parent</option>
+                        </select>
+                    </label>
+                    }
                 </div>
                     
                 <div>
                 <label>
                     Name:
-                    <input type='text' name='name' />
+                    <input type='text' value={name} />
+                </label>
+                <label>
+                    Date of birth:
+                    <input type='text' value={date} />
+                </label>
+                <label>
+                    Sex:
+                    <select value={this.state.value}>
+                        <option value='male'>Male</option>
+                        <option value='female'>Female</option>
+                    </select>
+                </label>
+                <label>
+                    Status:
+                    <select value={this.state.value}>
+                        <option selected value='available'>Available</option>
+                    </select>
+                </label>
+                <label>
+                    Fur colour:
+                    <input type='text' value={colour} />
+                </label>
+                <label>
+                    Descriptor:
+                    <input type='text' value={adj} />
                 </label>
                 </div>
 
                 <div>
+                    
                 </div>
 
                 <div className='buttons-container'>
