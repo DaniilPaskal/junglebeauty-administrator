@@ -30,10 +30,6 @@ const CatForm = ({ cat }) => {
                     <option value='parent'>Parent</option>
                 </select>
                 }
-                
-                <label>
-                    <input type='radio' value='Kitten' checked={true} />
-                </label>
                     
                 <div className='buttons-container'>
                     <button type='submit'>Submit</button>
