@@ -69,7 +69,33 @@ const CatForm = ({ cat }) => {
                 </div>
 
                 <div>
-                    
+                    {type == 'kitten' ?
+                    <>
+                        <label>
+                            Mother:
+                            <select value={this.state.value}>
+                                
+                            </select>
+                        </label>
+                        <label>
+                            Father:
+                            <select value={this.state.value}>
+                                
+                            </select>
+                        </label>
+                    </>
+                    :
+                    <>
+                        <label>
+                            Cattery:
+                            <input type='text' value={cattery} />
+                        </label>
+                        <label>
+                            Location:
+                            <input type='text' value={location} />
+                        </label>
+                    </>
+                    }
                 </div>
 
                 <div className='buttons-container'>
