@@ -24,13 +24,25 @@ const CatForm = ({ cat }) => {
         <div className='sign-up-container'>
             <h2>Add new cat to database:</h2>
             <form onSubmit={handleSubmit}>
+                <div>
                 {!cat &&
                 <select value={this.state.value}>
                     <option value='kitten'>Kitten</option>
                     <option value='parent'>Parent</option>
                 </select>
                 }
+                </div>
                     
+                <div>
+                <label>
+                    Name:
+                    <input type='text' name='name' />
+                </label>
+                </div>
+
+                <div>
+                </div>
+
                 <div className='buttons-container'>
                     <button type='submit'>Submit</button>
                 </div>
