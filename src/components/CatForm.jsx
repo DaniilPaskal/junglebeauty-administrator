@@ -18,7 +18,9 @@ const defaultCat = {
 const CatForm = ({ cat = defaultCat }) => {
     const [formFields, setFormFields] = useState('');
     const [type, setType] = useState('kitten');
-    const { name, date, sex, adj, colour, status, father, mother, cattery, location } = formFields;
+    const { name, date, sex, adj, colour, status, father, mother, cattery, location } = cat;
+
+    console.log(cat);
     
     const resetFormFields = () => {
         setFormFields('');
@@ -41,9 +43,20 @@ const CatForm = ({ cat = defaultCat }) => {
                     {!cat &&
                     <label>
                         Cat type:
-                        <select value={this.state.value} onChange={(e) => setType(e.target.value)}>
-                            <option selected value='kitten'>Kitten</option>
-                            <option value='parent'>Parent</option>
+                        <select value={type} onChange={(e) => setType(e.target.value)}>
+                            { type == 'kitten' 
+                            ?
+                                <>
+                                    <option selected value='kitten'>Kitten</option>
+                                    <option value='parent'>Parent</option>
+                                </>
+                            :
+                                <>
+                                    <option value='kitten'>Kitten</option>
+                                    <option selected value='parent'>Parent</option>
+                                </>
+                            }
+                            
                         </select>
                     </label>
                     }
@@ -60,14 +73,14 @@ const CatForm = ({ cat = defaultCat }) => {
                 </label>
                 <label>
                     Sex:
-                    <select value={this.state.value}>
+                    <select value={sex}>
                         <option value='male'>Male</option>
                         <option value='female'>Female</option>
                     </select>
                 </label>
                 <label>
                     Status:
-                    <select value={this.state.value}>
+                    <select value={status}>
                         <option selected value='available'>Available</option>
                     </select>
                 </label>
@@ -86,13 +99,13 @@ const CatForm = ({ cat = defaultCat }) => {
                     <>
                         <label>
                             Mother:
-                            <select value={this.state.value}>
+                            <select value={mother || ''}>
                                 
                             </select>
                         </label>
                         <label>
                             Father:
-                            <select value={this.state.value}>
+                            <select value={father || ''}>
                                 
                             </select>
                         </label>
@@ -101,11 +114,11 @@ const CatForm = ({ cat = defaultCat }) => {
                     <>
                         <label>
                             Cattery:
-                            <input type='text' value={cattery} />
+                            <input type='text' value={cattery || ''} />
                         </label>
                         <label>
                             Location:
-                            <input type='text' value={location} />
+                            <input type='text' value={location || ''} />
                         </label>
                     </>
                     }
