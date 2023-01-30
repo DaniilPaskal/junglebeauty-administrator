@@ -2,7 +2,20 @@ import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import './../App.css';
 
-const CatForm = ({ cat }) => {
+const defaultCat = {
+    name: '',
+    date: '',
+    sex: '',
+    adj: '',
+    colour: '',
+    status: '',
+    father: '',
+    mother: '',
+    cattery: '',
+    location: ''
+}
+
+const CatForm = ({ cat = defaultCat }) => {
     const [formFields, setFormFields] = useState('');
     const [type, setType] = useState('kitten');
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = formFields;
