@@ -17,6 +17,7 @@ const defaultCat = {
 
 const CatForm = ({ cat = defaultCat }) => {
     const [formFields, setFormFields] = useState('');
+    //const [cat, setCat] = useState(cat);
     const [type, setType] = useState('kitten');
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = cat;
 
@@ -44,19 +45,8 @@ const CatForm = ({ cat = defaultCat }) => {
                     <label>
                         Cat type:
                         <select value={type} onChange={(e) => setType(e.target.value)}>
-                            { type == 'kitten' 
-                            ?
-                                <>
-                                    <option selected value='kitten'>Kitten</option>
-                                    <option value='parent'>Parent</option>
-                                </>
-                            :
-                                <>
-                                    <option value='kitten'>Kitten</option>
-                                    <option selected value='parent'>Parent</option>
-                                </>
-                            }
-                            
+                            <option value='kitten'>Kitten</option>
+                            <option value='parent'>Parent</option>
                         </select>
                     </label>
                     }
