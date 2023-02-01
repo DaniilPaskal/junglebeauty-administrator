@@ -71,11 +71,19 @@ const CatForm = ({ cat = defaultCat }) => {
                 <label>
                     Status:
                     <select value={status} onChange={handleChange}>
-                        <option value='available'>Available</option>
-                        <option value='available'>Reserved</option>
-                        <option value='available'>Graduated</option>
-                        <option value='available'>Active</option>
-                        <option value='available'>Retired</option>
+                        {type == 'kitten'
+                        ?
+                        <>
+                            <option value='available'>Available</option>
+                            <option value='available'>Reserved</option>
+                            <option value='available'>Graduated</option>
+                        </>
+                        :
+                        <>
+                            <option value='available'>Active</option>
+                            <option value='available'>Retired</option>
+                        </>
+                        }
                     </select>
                 </label>
                 <label>
@@ -92,7 +100,8 @@ const CatForm = ({ cat = defaultCat }) => {
                 </div>
 
                 <div>
-                    {type == 'kitten' ?
+                    {type == 'kitten'
+                    ?
                     <>
                         <label>
                             Mother:
