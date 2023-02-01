@@ -71,7 +71,11 @@ const CatForm = ({ cat = defaultCat }) => {
                 <label>
                     Status:
                     <select value={status} onChange={handleChange}>
-                        <option selected value='available'>Available</option>
+                        <option value='available'>Available</option>
+                        <option value='available'>Reserved</option>
+                        <option value='available'>Graduated</option>
+                        <option value='available'>Active</option>
+                        <option value='available'>Retired</option>
                     </select>
                 </label>
                 <label>
