@@ -76,7 +76,10 @@ const CatForm = ({ cat = defaultCat }) => {
                 </label>
                 <label>
                     Fur colour:
-                    <input type='text' value={colour} onChange={handleChange} />
+                    <select value={colour} onChange={handleChange}>
+                        <option value='silver'>Silver</option>
+                        <option value='brown'>Brown</option>
+                    </select>
                 </label>
                 <label>
                     Descriptor:
