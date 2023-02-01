@@ -40,8 +40,8 @@ const CatForm = ({ cat = defaultCat }) => {
     return (
         <div className='form-container'>
             <form onSubmit={handleSubmit}>
+            {cat == defaultCat &&
                 <div>
-                    {!cat &&
                     <label>
                         Cat type:
                         <select value={type} onChange={(e) => setType(e.target.value)}>
@@ -49,8 +49,8 @@ const CatForm = ({ cat = defaultCat }) => {
                             <option value='parent'>Parent</option>
                         </select>
                     </label>
-                    }
                 </div>
+            }
                     
                 <div>
                 <label>
