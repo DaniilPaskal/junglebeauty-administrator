@@ -3,7 +3,10 @@ import CatForm from "../components/CatForm";
 
 const AddCats = () => {
     return (
-        <CatForm />
+        <>
+            <h2>Add new cat to database:</h2>
+            <CatForm />
+        </>
     )
 }
 

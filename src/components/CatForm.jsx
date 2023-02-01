@@ -29,7 +29,8 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormFields({...formFields, [name]: value});
+        //setFormFields({...formFields, [name]: value});
+        
     }
 
     const handleSubmit = async (event) => {
@@ -37,8 +38,7 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     return (
-        <div className='sign-up-container'>
-            <h2>Add new cat to database:</h2>
+        <div className='form-container'>
             <form onSubmit={handleSubmit}>
                 <div>
                     {!cat &&
