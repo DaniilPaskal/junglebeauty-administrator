@@ -16,21 +16,19 @@ const defaultCat = {
 }
 
 const CatForm = ({ cat = defaultCat }) => {
-    const [formFields, setFormFields] = useState('');
-    //const [cat, setCat] = useState(cat);
+    const [newCat, setNewCat] = useState(cat);
     const [type, setType] = useState('kitten');
-    const { name, date, sex, adj, colour, status, father, mother, cattery, location } = cat;
+    const { name, date, sex, adj, colour, status, father, mother, cattery, location } = newCat;
 
     console.log(cat);
     
-    const resetFormFields = () => {
-        setFormFields('');
+    const resetForm = () => {
+        setNewCat(defaultCat);
     }
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        //setFormFields({...formFields, [name]: value});
-        
+        setNewCat({ ...newCat, [name]: value });
     }
 
     const handleSubmit = async (event) => {
@@ -55,7 +53,7 @@ const CatForm = ({ cat = defaultCat }) => {
                 <div>
                 <label>
                     Name:
-                    <input type='text' value={name} onChange={handleChange} />
+                    <input type='text' value={newCat.name} onChange={handleChange} />
                 </label>
                 <label>
                     Date of birth:
