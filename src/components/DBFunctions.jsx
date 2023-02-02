@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { ref, getStorage, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebase';
 
@@ -43,12 +43,6 @@ export function InsertCat(table, cat) {
     }, []);
 }
 
-export function GetCatID(name, date) {
-    const id = `${name}${date ? `.${date}` : ``}`;
-    
-    return id;
-}
-
 export function UpdateCats(id, table, field, newValue) {
     const docRef = doc(db, table, id);
 
@@ -61,6 +55,22 @@ export function UpdateCats(id, table, field, newValue) {
     useEffect(() => {
         updateCat();
     }, []);
+}
+
+export function DeleteCat(id, table) {
+    const deleteCat = async () => {
+        await deleteDoc(doc(db, table, id));
+    };
+
+    useEffect(() => {
+        deleteCat();
+    }, []);
+}
+
+export function GetCatID(name, date) {
+    const id = `${name}${date ? `.${date}` : ``}`;
+    
+    return id;
 }
 
 export async function GetImage(filepath) {
