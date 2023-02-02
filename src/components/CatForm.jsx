@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { InsertCat, UpdateCat, DeleteCat } from './DBFunctions';
 import './../App.css';
 
 const defaultCat = {
@@ -31,16 +32,16 @@ const CatForm = ({ cat = defaultCat }) => {
         setNewCat({ ...newCat, [name]: value });
     }
 
-    const handleAdd = async (event) => {
-
+    const handleAdd = async () => {
+        InsertCat(`${type}s`, cat);
     }
 
-    const handleUpdate = async (event) => {
-
+    const handleUpdate = async () => {
+        UpdateCat(`${type}s`, cat);
     }
 
-    const handleDelete = async (event) => {
-
+    const handleDelete = async () => {
+        DeleteCat(`${type}s`, cat);
     }
 
     return (
