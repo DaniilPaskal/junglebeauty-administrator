@@ -43,13 +43,17 @@ export function InsertCat(table, cat) {
     }, []);
 }
 
-export function UpdateCats(id, table, field, newValue) {
-    const docRef = doc(db, table, id);
+export function UpdateCat(table, cat) {
+    const id = GetCatID(cat.name, cat.date);
 
     const updateCat = async () => {
-        await updateDoc(docRef, {
-            [field]: [newValue]
-        })
+        const docRef = doc(db, table, id);
+        
+        Object.keys(cat).map(async (key) => {
+            await updateDoc(docRef, {
+                [key]: cat[key]
+            })
+        });
     };
 
     useEffect(() => {
