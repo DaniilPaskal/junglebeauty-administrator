@@ -4,7 +4,7 @@ import CatRow from './CatRow';
 import './../App.css';
 
 const CatTable = ({ cats }) => {
-  
+
   return (
     <>
       <Table striped bordered hover>
