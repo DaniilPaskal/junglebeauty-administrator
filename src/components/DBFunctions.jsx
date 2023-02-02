@@ -10,7 +10,7 @@ export async function QueryCats(table, predicate = []) {
     if (predicate.length == 0) {
         q = query(collection(db, table));
     } else {
-        q = query(collection(db, table), where(predicate[0], predicate[1], predicate[2]));
+        q = query(collection(db, table), where(...predicate));
     }
 
     const docRefs = await getDocs(q);
@@ -43,7 +43,7 @@ export function InsertCat(table, cat) {
     }, []);
 }
 
-export function UpdateCat(table, cat) {
+export function UpdateCat(table, cat, name, date) {
     const id = GetCatID(cat.name, cat.date);
 
     const updateCat = async () => {
@@ -61,7 +61,9 @@ export function UpdateCat(table, cat) {
     }, []);
 }
 
-export function DeleteCat(id, table) {
+export function DeleteCat(table, name, date) {
+    const id = 0;
+    
     const deleteCat = async () => {
         await deleteDoc(doc(db, table, id));
     };
