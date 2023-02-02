@@ -31,24 +31,32 @@ const CatForm = ({ cat = defaultCat }) => {
         setNewCat({ ...newCat, [name]: value });
     }
 
-    const handleSubmit = async (event) => {
+    const handleAdd = async (event) => {
+
+    }
+
+    const handleUpdate = async (event) => {
+
+    }
+
+    const handleDelete = async (event) => {
 
     }
 
     return (
         <div className='form-container'>
-            <form onSubmit={handleSubmit}>
-            {cat == defaultCat &&
-                <div>
-                    <label>
-                        Cat type:
-                        <select value={type} onChange={(e) => setType(e.target.value)}>
-                            <option value='kitten'>Kitten</option>
-                            <option value='parent'>Parent</option>
-                        </select>
-                    </label>
-                </div>
-            }
+            <form>
+                {cat == defaultCat &&
+                    <div>
+                        <label>
+                            Cat type:
+                            <select value={type} onChange={(e) => setType(e.target.value)}>
+                                <option value='kitten'>Kitten</option>
+                                <option value='parent'>Parent</option>
+                            </select>
+                        </label>
+                    </div>
+                }
                     
                 <div>
                 <label>
@@ -131,11 +139,11 @@ const CatForm = ({ cat = defaultCat }) => {
                 <div className='buttons-container'>
                     {cat == defaultCat
                     ?
-                        <button type='submit'>Add cat</button>
+                        <button type='submit' onClick={handleAdd}>Add cat</button>
                     :
                     <>
-                        <button type='submit'>Update cat</button>
-                        <button type='submit'>Delete cat</button>
+                        <button type='submit' onClick={handleUpdate}>Update cat</button>
+                        <button type='submit' onClick={handleDelete}>Delete cat</button>
                     </>
                     }
                 </div>
