@@ -83,13 +83,13 @@ const CatForm = ({ cat = defaultCat }) => {
                         ?
                         <>
                             <option value='available'>Available</option>
-                            <option value='available'>Reserved</option>
-                            <option value='available'>Graduated</option>
+                            <option value='reserved'>Reserved</option>
+                            <option value='graduated'>Graduated</option>
                         </>
                         :
                         <>
-                            <option value='available'>Active</option>
-                            <option value='available'>Retired</option>
+                            <option value='active'>Active</option>
+                            <option value='retired'>Retired</option>
                         </>
                         }
                     </select>
