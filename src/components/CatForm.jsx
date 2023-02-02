@@ -129,7 +129,15 @@ const CatForm = ({ cat = defaultCat }) => {
                 </div>
 
                 <div className='buttons-container'>
-                    <button type='submit'>Submit</button>
+                    {cat == defaultCat
+                    ?
+                        <button type='submit'>Add cat</button>
+                    :
+                    <>
+                        <button type='submit'>Update cat</button>
+                        <button type='submit'>Delete cat</button>
+                    </>
+                    }
                 </div>
             </form>
         </div>
