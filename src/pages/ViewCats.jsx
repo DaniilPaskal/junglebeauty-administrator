@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { QueryCats } from "../components/DBFunctions";
 import CatTable from "../components/CatTable";
 
@@ -7,8 +7,11 @@ const ViewCats = () => {
     const [kittens, setKittens] = useState([]);
 
     const getCats = async () => {
-        const parents = await QueryCats('parents');
+        const kings = await QueryCats('parents', ['sex', '==', 'male']);
+        const queens = await QueryCats('parents', ['sex', '==', 'female']);
         const kittens = await QueryCats('kittens');
+        const parents = [...kings, ...queens];
+        
         setParents(parents);
         setKittens(kittens);
     }
