@@ -20,8 +20,8 @@ const CatForm = ({ cat = defaultCat }) => {
     const oldName = cat.name;
     const oldDate = cat.date;
     const [newCat, setNewCat] = useState(cat);
-    const [type, setType] = useState('kitten');
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = newCat;
+    const [type, setType] = useState(mother ? 'kitten' : 'parent');
     
     const resetForm = () => {
         setNewCat(defaultCat);
