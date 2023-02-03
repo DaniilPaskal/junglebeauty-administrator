@@ -43,15 +43,15 @@ export function InsertCat(table, cat) {
     }, []);
 }
 
-export function UpdateCat(table, oldCat, newCat) {
-    const id = GetCatID(oldCat.name, oldCat.date);
+export function UpdateCat(table, cat) {
+    const id = cat.id;
 
     const updateCat = async () => {
         const docRef = doc(db, table, id);
         
-        Object.keys(newCat).map(async (key) => {
+        Object.keys(cat).map(async (key) => {
             await updateDoc(docRef, {
-                [key]: newCat[key]
+                [key]: cat[key]
             })
         });
     };
@@ -62,7 +62,7 @@ export function UpdateCat(table, oldCat, newCat) {
 }
 
 export function DeleteCat(table, cat) {
-    const id = GetCatID(cat.name, cat.date);
+    const id = cat.id;
     
     const deleteCat = async () => {
         await deleteDoc(doc(db, table, id));
