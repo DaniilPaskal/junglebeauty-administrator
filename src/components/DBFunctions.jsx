@@ -43,15 +43,15 @@ export function InsertCat(table, cat) {
     }, []);
 }
 
-export function UpdateCat(table, cat, name, date) {
-    const id = GetCatID(cat.name, cat.date);
+export function UpdateCat(table, oldCat, newCat) {
+    const id = GetCatID(oldCat.name, oldCat.date);
 
     const updateCat = async () => {
         const docRef = doc(db, table, id);
         
-        Object.keys(cat).map(async (key) => {
+        Object.keys(newCat).map(async (key) => {
             await updateDoc(docRef, {
-                [key]: cat[key]
+                [key]: newCat[key]
             })
         });
     };
