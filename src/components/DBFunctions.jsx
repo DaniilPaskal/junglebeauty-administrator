@@ -61,8 +61,8 @@ export function UpdateCat(table, oldCat, newCat) {
     }, []);
 }
 
-export function DeleteCat(table, name, date) {
-    const id = 0;
+export function DeleteCat(table, cat) {
+    const id = GetCatID(cat.name, cat.date);
     
     const deleteCat = async () => {
         await deleteDoc(doc(db, table, id));
