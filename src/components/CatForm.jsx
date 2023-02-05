@@ -67,7 +67,7 @@ const CatForm = ({ cat = defaultCat }) => {
                 </label>
                 <label>
                     Date of birth:
-                    <input type='text' defaultValue={date} onChange={handleChange} />
+                    <input type='date' defaultValue={date} onChange={handleChange} />
                 </label>
                 <label>
                     Sex:
