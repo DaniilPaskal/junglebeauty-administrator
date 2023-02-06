@@ -1,3 +1,4 @@
+import { Table } from "react-bootstrap";
 
 const News = () => {
     <Table striped bordered hover>
