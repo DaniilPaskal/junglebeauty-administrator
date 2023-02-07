@@ -37,7 +37,7 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleUpdate = async () => {
-        //UpdateCat(`${type}s`, cat);
+        UpdateCat(`${type}s`, cat);
     }
 
     const handleDelete = async () => {
