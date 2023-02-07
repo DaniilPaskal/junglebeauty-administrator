@@ -30,6 +30,11 @@ const CatForm = ({ cat = defaultCat }) => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
+
+        console.log(name);
+        console.log(value);
+
+        console.log(newCat.name);
     }
 
     const handleAdd = async () => {
@@ -38,7 +43,7 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleUpdate = async () => {
         //UpdateCat(`${type}s`, cat);
-        console.log(cat);
+        console.log(newCat);
     }
 
     const handleDelete = async () => {
@@ -52,7 +57,7 @@ const CatForm = ({ cat = defaultCat }) => {
                     <div>
                         <label>
                             Cat type:
-                            <select value={type} onChange={(e) => setType(e.target.value)}>
+                            <select name='type' value={type} onChange={(e) => setType(e.target.value)}>
                                 <option value='kitten'>Kitten</option>
                                 <option value='parent'>Parent</option>
                             </select>
@@ -63,22 +68,22 @@ const CatForm = ({ cat = defaultCat }) => {
                 <div>
                 <label>
                     Name:
-                    <input type='text' defaultValue={name} onChange={handleChange} />
+                    <input name='name' type='text' defaultValue={name} onChange={handleChange} />
                 </label>
                 <label>
                     Date of birth:
-                    <input type='date' defaultValue={date} onChange={handleChange} />
+                    <input name='date' type='date' defaultValue={date} onChange={handleChange} />
                 </label>
                 <label>
                     Sex:
-                    <select defaultValue={sex} onChange={handleChange}>
+                    <select name='sex' defaultValue={sex} onChange={handleChange}>
                         <option value='male'>Male</option>
                         <option value='female'>Female</option>
                     </select>
                 </label>
                 <label>
                     Status:
-                    <select defaultValue={status} onChange={handleChange}>
+                    <select name='status' defaultValue={status} onChange={handleChange}>
                         {type == 'kitten'
                         ?
                         <>
@@ -96,14 +101,14 @@ const CatForm = ({ cat = defaultCat }) => {
                 </label>
                 <label>
                     Fur colour:
-                    <select defaultValue={colour} onChange={handleChange}>
+                    <select name='colour' defaultValue={colour} onChange={handleChange}>
                         <option value='silver'>Silver</option>
                         <option value='brown'>Brown</option>
                     </select>
                 </label>
                 <label>
                     Descriptor:
-                    <input type='text' defaultValue={adj} onChange={handleChange} />
+                    <input name='adj' type='text' defaultValue={adj} onChange={handleChange} />
                 </label>
                 </div>
 
@@ -113,13 +118,13 @@ const CatForm = ({ cat = defaultCat }) => {
                     <>
                         <label>
                             Mother:
-                            <select defaultValue={mother || ''} onChange={handleChange}>
+                            <select name='mother' defaultValue={mother || ''} onChange={handleChange}>
                                 
                             </select>
                         </label>
                         <label>
                             Father:
-                            <select defaultValue={father || ''} onChange={handleChange}>
+                            <select name='father' defaultValue={father || ''} onChange={handleChange}>
                                 
                             </select>
                         </label>
@@ -128,11 +133,11 @@ const CatForm = ({ cat = defaultCat }) => {
                     <>
                         <label>
                             Cattery:
-                            <input type='text' defaultValue={cattery || ''} onChange={handleChange} />
+                            <input name='cattery' type='text' defaultValue={cattery || ''} onChange={handleChange} />
                         </label>
                         <label>
                             Location:
-                            <input type='text' defaultValue={location || ''} onChange={handleChange} />
+                            <input name='location' type='text' defaultValue={location || ''} onChange={handleChange} />
                         </label>
                     </>
                     }
