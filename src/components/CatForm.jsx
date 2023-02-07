@@ -30,11 +30,6 @@ const CatForm = ({ cat = defaultCat }) => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
-
-        console.log(name);
-        console.log(value);
-
-        console.log(newCat.name);
     }
 
     const handleAdd = async () => {
@@ -43,7 +38,6 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleUpdate = async () => {
         //UpdateCat(`${type}s`, cat);
-        console.log(newCat);
     }
 
     const handleDelete = async () => {
