@@ -3,6 +3,15 @@ import { useState } from 'react';
 const Login = () => {
     const [user, setUser] = useState();
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setUser({ ...user, [name]: value });
+    }
+
+    const handleLogin = () => {
+
+    }
+
     return (
         <div>
             <form>
