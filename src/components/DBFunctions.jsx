@@ -98,3 +98,7 @@ export async function GetAllImages(filepath) {
   
     return images;
   }
+
+export async function GetList(list) {
+    
+}
