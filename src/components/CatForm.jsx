@@ -60,50 +60,55 @@ const CatForm = ({ cat = defaultCat }) => {
                 }
                     
                 <div>
-                <label>
-                    Name:
-                    <input name='name' type='text' defaultValue={name} onChange={handleChange} />
-                </label>
-                <label>
-                    Date of birth:
-                    <input name='date' type='date' defaultValue={date} onChange={handleChange} />
-                </label>
-                <label>
-                    Sex:
-                    <select name='sex' defaultValue={sex} onChange={handleChange}>
-                        <option value='male'>Male</option>
-                        <option value='female'>Female</option>
-                    </select>
-                </label>
-                <label>
-                    Status:
-                    <select name='status' defaultValue={status} onChange={handleChange}>
-                        {type == 'kitten'
-                        ?
-                        <>
-                            <option value='available'>Available</option>
-                            <option value='reserved'>Reserved</option>
-                            <option value='graduated'>Graduated</option>
-                        </>
-                        :
-                        <>
-                            <option value='active'>Active</option>
-                            <option value='retired'>Retired</option>
-                        </>
-                        }
-                    </select>
-                </label>
-                <label>
-                    Fur colour:
-                    <select name='colour' defaultValue={colour} onChange={handleChange}>
-                        <option value='silver'>Silver</option>
-                        <option value='brown'>Brown</option>
-                    </select>
-                </label>
-                <label>
-                    Descriptor:
-                    <input name='adj' type='text' defaultValue={adj} onChange={handleChange} />
-                </label>
+                    <label>
+                        Name:
+                        <input name='name' type='text' defaultValue={name} onChange={handleChange} />
+                    </label>
+                    <br />
+                    <label>
+                        Date of birth:
+                        <input name='date' type='date' defaultValue={date} onChange={handleChange} />
+                    </label>
+                    <br />
+                    <label>
+                        Sex:
+                        <select name='sex' defaultValue={sex} onChange={handleChange}>
+                            <option value='male'>Male</option>
+                            <option value='female'>Female</option>
+                        </select>
+                    </label>
+                    <br />
+                    <label>
+                        Status:
+                        <select name='status' defaultValue={status} onChange={handleChange}>
+                            {type == 'kitten'
+                            ?
+                            <>
+                                <option value='available'>Available</option>
+                                <option value='reserved'>Reserved</option>
+                                <option value='graduated'>Graduated</option>
+                            </>
+                            :
+                            <>
+                                <option value='active'>Active</option>
+                                <option value='retired'>Retired</option>
+                            </>
+                            }
+                        </select>
+                    </label>
+                    <br />
+                    <label>
+                        Descriptor:
+                        <input name='adj' type='text' defaultValue={adj} onChange={handleChange} />
+                    </label>
+                    <br />
+                    <label>
+                        Fur colour:
+                        <select name='colour' defaultValue={colour} onChange={handleChange}>
+                            <option value='silver'>Silver</option>
+                            <option value='brown'>Brown</option>
+                        </select>
+                    </label>
                 </div>
 
                 <div>
