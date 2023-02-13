@@ -104,3 +104,7 @@ export async function GetList(list) {
     
 }
 
+export async function SignIn(email, password) {
+    const auth = getAuth();
+    return await signInWithEmailAndPassword(auth, email, password);
+}
