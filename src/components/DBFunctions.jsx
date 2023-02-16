@@ -80,7 +80,7 @@ export function GetCatID(name, date) {
     return id;
 }
 
-export async function GetImage(filepath) {
+export async function GetFile(filepath) {
     const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com${filepath}`));
 
@@ -101,7 +101,7 @@ export async function GetAllImages(filepath) {
   }
 
 export async function GetList(list) {
-    
+    const storage = getStorage();
 }
 
 export async function SignIn(email, password) {
