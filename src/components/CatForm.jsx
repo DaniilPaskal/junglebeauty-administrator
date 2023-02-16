@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { InsertCat, UpdateCat, DeleteCat } from './DBFunctions';
-
+import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
 const defaultCat = {
@@ -155,6 +155,10 @@ const CatForm = ({ cat = defaultCat }) => {
                     }
                 </div>
             </form>
+
+            {cat != defaultCat &&
+                <ImageCarousel cat={cat} />
+            }
         </div>
     );
 };
