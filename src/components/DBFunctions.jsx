@@ -100,10 +100,6 @@ export async function GetAllImages(filepath) {
     return images;
   }
 
-export async function GetList(list) {
-    const storage = getStorage();
-}
-
 export async function SignIn(email, password) {
     const auth = getAuth();
     return await signInWithEmailAndPassword(auth, email, password);
