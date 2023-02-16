@@ -1,13 +1,13 @@
 import { Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { GetFile } from "../components/DBFunctions";
+import { GetImage } from "../components/DBFunctions";
 import TextRow from "../components/TextRow";
 
 const News = () => {
   const [news, setNews] = useState([]);
 
   const getNews = async () => {
-    const news = await GetFile('/Lists/NewsList.jsx');
+    const news = await GetList('News-List.json');
     setNews(news);
   }
 

@@ -101,6 +101,8 @@ export async function GetAllImages(filepath) {
   }
 
 export async function GetList(list) {
+    const storage = getStorage();
+    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${list}`));
 
 }
 
