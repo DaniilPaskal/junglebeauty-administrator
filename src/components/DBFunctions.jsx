@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut,onAuthStateChanged} from 'firebase/auth';
-import { ref, getStorage, getDownloadURL } from 'firebase/storage';
+import { ref, getStorage, getDownloadURL, listAll } from 'firebase/storage';
 import { db } from '../firebase';
 
 export async function QueryCats(table, predicate = []) {
@@ -82,23 +82,24 @@ export function GetCatID(name, date) {
 
 export async function GetImage(filepath) {
     const storage = getStorage();
-    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com${filepath}`));
+    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/${filepath}`));
 
     return url;
 }
 
 export async function GetAllImages(filepath) {
-    const storage = getStorage();
     const images = [];
+    const storage = getStorage();
+    const storageRef = ref(storage, filepath);
     
-    const storageRef = await storage.ref().child(filepath).listAll();
-    storageRef.map((image) => {
-        const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com${image}`));
-        images.push(url);
+    const result = await listAll(storageRef);
+    
+    result.items.forEach(image => {
+        images.push(image.fullPath);
     })
-  
+
     return images;
-  }
+}
 
 export async function GetList(listName) {
     const storage = getStorage();
