@@ -4,8 +4,17 @@ import { GetFile } from "../components/DBFunctions";
 import TextRow from "../components/TextRow";
 
 const News = () => {
-  const [news, getNews] = useEffect([]);
+  const [news, setNews] = useState([]);
 
+  const getNews = async () => {
+    const news = await GetFile('/Lists/NewsList.jsx');
+    setNews(news);
+  }
+
+  useEffect(() => {
+    getNews();
+  }, []);
+  
   return (
     <Table striped bordered hover>
         <thead>
@@ -18,7 +27,7 @@ const News = () => {
         <tbody>
           {news.map((newsItem) => {
             return (
-              <tr></tr>
+              <TextRow text={newsItem} />
             );
           })}
         </tbody>
