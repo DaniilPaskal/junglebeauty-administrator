@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { InsertCat, UpdateCat, DeleteCat } from './DBFunctions';
+
 import './../App.css';
 
 const defaultCat = {
