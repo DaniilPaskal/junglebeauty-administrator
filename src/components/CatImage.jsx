@@ -4,8 +4,6 @@ import { GetImage } from './DBFunctions';
 const CatImage = ({ filepath }) => {
     const [image, setImage] = useState();
 
-    console.log(filepath);
-
     const getImage = async () => {
         const image = await GetImage(filepath);
         setImage(image);
