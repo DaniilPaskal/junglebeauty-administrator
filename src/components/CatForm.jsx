@@ -155,10 +155,7 @@ const CatForm = ({ cat = defaultCat }) => {
                     }
                 </div>
             </form>
-
-            {cat != defaultCat &&
-                <ImageCarousel cat={cat} />
-            }
+            <ImageCarousel cat={cat} />
         </div>
     );
 };
