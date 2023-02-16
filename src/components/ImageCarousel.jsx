@@ -50,7 +50,7 @@ const ImageCarousel = ({ cat }) => {
     >
         {images.map((image) => {
             return (
-                <CatImage filepath={image} />
+                <CatImage key={image} filepath={image} />
             )
         })}
     </Carousel>
