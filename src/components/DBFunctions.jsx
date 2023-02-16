@@ -100,10 +100,12 @@ export async function GetAllImages(filepath) {
     return images;
   }
 
-export async function GetList(list) {
+export async function GetList(listName) {
     const storage = getStorage();
-    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${list}`));
+    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`));
+    const list = fetch(url);
 
+    return list;
 }
 
 export async function SignIn(email, password) {

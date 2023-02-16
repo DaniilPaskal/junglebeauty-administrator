@@ -15,6 +15,8 @@ const News = () => {
     getNews();
   }, []);
   
+  console.log(news);
+
   return (
     <Table striped bordered hover>
         <thead>
