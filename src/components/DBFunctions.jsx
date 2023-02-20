@@ -105,7 +105,7 @@ export async function GetList(listName) {
     const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`));
     const list = fetch(url);
-    const data = await list.json();
+    const data = list.json();
 
     return data;
 }
