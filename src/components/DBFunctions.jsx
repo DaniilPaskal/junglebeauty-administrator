@@ -110,6 +110,15 @@ export async function GetList(listName) {
     return data;
 }
 
+export async function GetText(textName) {
+    const storage = getStorage();
+    const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Texts/${textName}`));
+    const list = fetch(url);
+    const data = list.json();
+
+    return data;
+}
+
 export async function SignIn(email, password) {
     const auth = getAuth();
     return await signInWithEmailAndPassword(auth, email, password);
