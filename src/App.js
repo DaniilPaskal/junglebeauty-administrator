@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import AddCats from './pages/AddCats';
@@ -11,6 +13,12 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    })
+  }, []);
 
   return (
     <AuthProvider value={user}>
