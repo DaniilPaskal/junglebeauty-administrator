@@ -14,3 +14,5 @@ export function AuthProvider({children, value}) {
 export function useAuth() {
     return useContext(AuthContext);
 }
+
+export { auth }
