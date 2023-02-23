@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import AddCats from './pages/AddCats';
