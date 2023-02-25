@@ -104,8 +104,8 @@ export async function GetAllImages(filepath) {
 export async function GetList(listName) {
     const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`));
-    const list = fetch(url);
-    const data = list.json();
+    const list = await fetch(url);
+    const data = await list.json();
 
     return data;
 }
@@ -113,8 +113,8 @@ export async function GetList(listName) {
 export async function GetText(textName) {
     const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Texts/${textName}`));
-    const list = fetch(url);
-    const data = list.json();
+    const list = await fetch(url);
+    const data = await list.json();
 
     return data;
 }
