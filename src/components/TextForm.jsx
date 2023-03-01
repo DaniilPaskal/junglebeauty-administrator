@@ -4,11 +4,11 @@ import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
 const TextForm = ({ text }) => {
-    const [text, setText] = useState(text);
+    const [newText, setNewText] = useState(text);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setText({ ...text, [name]: value });
+        setNewText({ ...newText, [name]: value });
     }
 
     const handleAdd = async () => {
@@ -28,7 +28,6 @@ const TextForm = ({ text }) => {
                     <button type='button' onClick={handleUpdate}>Update item</button>
                 </div>
             </form>
-            <ImageCarousel cat={cat} />
         </div>
     );
 };
