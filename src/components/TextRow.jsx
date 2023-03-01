@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import TextForm from './TextForm';
 import './../App.css';
 
 const TextRow = ({ text }) => {
@@ -16,7 +17,7 @@ const TextRow = ({ text }) => {
             <Modal show={show} onHide={handleClose} size='lg'>
                 <Modal.Header closeButton/>
                 <Modal.Body>
-                    
+                    <TextForm text={text} />
                 </Modal.Body>
             </Modal>
         </>
