@@ -1,15 +1,24 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
+import { auth } from '../firebase';
 
 const Login = () => {
     const [user, setUser] = useState();
+    const { email, password } = user;
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setUser({ ...user, [name]: value });
     }
 
-    const handleLogin = () => {
+    const handleLogin = async (event) => {
+        event.preventDefault();
 
+        try {
+            
+        } catch(error) {
+
+        }
     }
 
     return (
