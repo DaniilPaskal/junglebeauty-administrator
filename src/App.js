@@ -26,13 +26,11 @@ function App() {
       <div className="App">
         <Navigation />
         <div className='page-content'>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path='login' element={<Login />} />
-            <Route path='add-cats' element={<AddCats />} />
-            <Route path='view-cats' element={<ViewCats />} />
-            <Route path='news' element={<News />} />
-          </Routes>
+            <PrivateRoute path='login' component={<Login />} />
+            <PrivateRoute index component={<Home />} />
+            <PrivateRoute path='add-cats' component={<AddCats />} />
+            <PrivateRoute path='view-cats' component={<ViewCats />} />
+            <PrivateRoute path='news' component={<News />} />
         </div>
       </div>
     </AuthProvider>
