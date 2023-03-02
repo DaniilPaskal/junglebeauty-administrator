@@ -26,11 +26,29 @@ function App() {
       <div className="App">
         <Navigation />
         <div className='page-content'>
-            <PrivateRoute path='login' component={<Login />} />
-            <PrivateRoute index component={<Home />} />
-            <PrivateRoute path='add-cats' component={<AddCats />} />
-            <PrivateRoute path='view-cats' component={<ViewCats />} />
-            <PrivateRoute path='news' component={<News />} />
+          <Routes>
+            <Route path='login' element={<Login />} />
+            <Route index element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            } />
+            <Route path='add-cats' element={
+              <PrivateRoute>
+                <AddCats />
+              </PrivateRoute>
+            } />
+            <Route path='view-cats' element={
+              <PrivateRoute>
+                <ViewCats />
+              </PrivateRoute>
+            } />
+            <Route path='news' element={
+              <PrivateRoute>
+                <News />
+              </PrivateRoute>
+            } />
+          </Routes>
         </div>
       </div>
     </AuthProvider>
