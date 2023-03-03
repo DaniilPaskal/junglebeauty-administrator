@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { auth, getAuth, signOut, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut,onAuthStateChanged} from 'firebase/auth';
+import {  getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut,onAuthStateChanged} from 'firebase/auth';
 import { ref, getStorage, getDownloadURL, listAll } from 'firebase/storage';
+import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 
@@ -126,11 +127,5 @@ export async function SignIn(email, password) {
 }
 
 export function handleLogout() {
-    const navigate = useNavigate();
-
-    signOut(auth).then(() => {
-        navigate('login');
-    }).catch((error) => {
-        console.error();
-    });
+    signOut(auth);
 }
