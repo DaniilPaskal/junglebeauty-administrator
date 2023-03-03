@@ -2,10 +2,13 @@ import React from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
+import { handleLogout } from './DBFunctions';
 import './../App.css';
 
 const Navigation = () => {
     const user = useAuth();
+
+    
 
     return (
         <Navbar collapseOnSelect className='nav-bar' expand="lg" variant='dark' bg='dark'>
@@ -21,8 +24,9 @@ const Navigation = () => {
                     </Nav>
                     {user &&
                         <Nav>
-                            
-                            <NavLink className='nav-link' to='/' end>Home</NavLink>
+                            <button onClick={handleLogout}>
+                                Log out
+                            </button>
                         </Nav>
                     }
                 </Navbar.Collapse>
