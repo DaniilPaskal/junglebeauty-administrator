@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import {  getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut,onAuthStateChanged} from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { ref, getStorage, getDownloadURL, listAll } from 'firebase/storage';
 import { auth } from '../firebase';
-import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 
 export async function QueryCats(table, predicate = []) {
@@ -119,11 +118,6 @@ export async function GetText(textName) {
     const data = await list.json();
 
     return data;
-}
-
-export async function SignIn(email, password) {
-    const auth = getAuth();
-    return await signInWithEmailAndPassword(auth, email, password);
 }
 
 export function handleLogout() {
