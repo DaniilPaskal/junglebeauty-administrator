@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GetImage } from './DBFunctions';
+import { GetImage } from './FirebaseFunctions';
 
 const CatImage = ({ filepath }) => {
     const [image, setImage] = useState();

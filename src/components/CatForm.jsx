@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { InsertCat, UpdateCat, DeleteCat } from './DBFunctions';
+import { InsertCat, UpdateCat, DeleteCat } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 

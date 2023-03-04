@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GetList } from './DBFunctions';
+import { GetList } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 

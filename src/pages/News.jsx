@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { GetList } from "../components/DBFunctions";
+import { GetList } from "../components/FirebaseFunctions";
 import TextRow from "../components/TextRow";
 
 const News = () => {

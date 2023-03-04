@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { QueryCats } from "../components/DBFunctions";
+import { QueryCats } from "../components/FirebaseFunctions";
 import CatTable from "../components/CatTable";
 
 const ViewCats = () => {
