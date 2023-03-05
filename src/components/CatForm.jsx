@@ -45,6 +45,10 @@ const CatForm = ({ cat = defaultCat }) => {
         DeleteCat(`${type}s`, cat);
     }
 
+    const handleImageUpload = async () => {
+        
+    }
+
     return (
         <div className='form-container'>
             <form>
@@ -156,6 +160,9 @@ const CatForm = ({ cat = defaultCat }) => {
                 </div>
             </form>
             <ImageCarousel cat={cat} />
+            <div className='buttons-container'>
+                <button type='button' onClick={handleImageUpload}>Upload images</button>
+            </div>
         </div>
     );
 };
