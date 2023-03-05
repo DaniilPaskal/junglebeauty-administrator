@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { getDatabase, ref, push, set } from 'firebase/database';
 import { signOut } from 'firebase/auth';
 import { ref, getStorage, getDownloadURL, listAll } from 'firebase/storage';
 import { auth } from '../firebase';
