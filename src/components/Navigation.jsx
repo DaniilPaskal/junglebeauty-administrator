@@ -8,6 +8,8 @@ import './../App.css';
 const Navigation = () => {
     const user = useAuth();
 
+    console.log(user);
+
     return (
         <Navbar collapseOnSelect className='nav-bar' expand="lg" variant='dark' bg='dark'>
             <Container>
@@ -21,14 +23,13 @@ const Navigation = () => {
                         <NavLink className='nav-link' to='/accounts' end>Accounts</NavLink>
                     </Nav>
 
-                    return (
-                        user &&
-                            <Nav>
+                    {user &&
+                        <Nav>
                             <button onClick={handleLogout}>
                                 Log out
                             </button>
-                            </Nav>
-                    );
+                        </Nav>
+                    }
                 </Navbar.Collapse>
             </Container>
         </Navbar>
