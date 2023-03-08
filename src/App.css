@@ -258,3 +258,18 @@ a:hover{
 cat-row:hover {
   margin-left: 10pt;
 }
+
+/* Forms */
+
+.form-container {
+  align-content: center;
+  padding: 10pt;
+}
+
+.form-label {
+  margin: auto;
+}
+
+.buttons-container {
+  padding-top: 10pt;
+}
