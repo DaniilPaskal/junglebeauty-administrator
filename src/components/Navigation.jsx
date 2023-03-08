@@ -8,8 +8,6 @@ import './../App.css';
 const Navigation = () => {
     const user = useAuth();
 
-    console.log(user);
-
     return (
         <Navbar collapseOnSelect className='nav-bar' expand="lg" variant='dark' bg='dark'>
             <Container>
