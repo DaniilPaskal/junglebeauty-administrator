@@ -21,47 +21,37 @@ export async function QueryCats(table, predicate = []) {
     docRefs.forEach(doc => {
         cats.push({...doc.data(), id: doc.id});
     })
+
+    console.log(cats);
     
     return cats;
 }
 
-export function InsertCat(table, cat) {
+export async function InsertCat(table, cat) {
     const { name, collar, colour, sex, adj, date, cattery, location, mother, father } = cat;
     const id = GetCatID(name, date);
 
-    const addCat = async () => {
-        const docRef = doc(db, table, id);
+    const docRef = doc(db, table, id);
 
-        await setDoc(docRef, {});
-    
-        Object.keys(cat).map(async (key) => {
-            await updateDoc(docRef, {
-                [key]: cat[key]
-            })
-        });
-    };
+    await setDoc(docRef, {});
 
-    useEffect(() => {
-        addCat();
-    }, []);
+    Object.keys(cat).map(async (key) => {
+        await updateDoc(docRef, {
+            [key]: cat[key]
+        })
+    });
 }
 
-export function UpdateCat(table, cat) {
+export async function UpdateCat(table, cat) {
     const id = cat.id;
 
-    const updateCat = async () => {
-        const docRef = doc(db, table, id);
-        
-        Object.keys(cat).map(async (key) => {
-            await updateDoc(docRef, {
-                [key]: cat[key]
-            })
-        });
-    };
+    const docRef = doc(db, table, id);
 
-    useEffect(() => {
-        updateCat();
-    }, []);
+    Object.keys(cat).map(async (key) => {
+        await updateDoc(docRef, {
+            [key]: cat[key]
+        })
+    });
 }
 
 export function DeleteCat(table, cat) {
