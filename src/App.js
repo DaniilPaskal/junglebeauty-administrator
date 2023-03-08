@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider value={user}>
+    <AuthProvider value={{user}}>
       <div className="App">
         <Navigation />
         <div className='page-content'>
