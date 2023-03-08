@@ -25,14 +25,17 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='form-container'>
             <form>
-                <label>
+                <label className='form-label'>
                     Email:
+                    <br />
                     <input name='email' type='email' onChange={handleChange} />
                 </label>
-                <label>
+                <br />
+                <label className='form-label'>
                     Password:
+                    <br />
                     <input name='password' type='password' onChange={handleChange} />
                 </label>
 
