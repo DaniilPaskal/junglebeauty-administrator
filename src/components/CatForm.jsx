@@ -161,11 +161,11 @@ const CatForm = ({ cat = defaultCat }) => {
                 <div className='buttons-container'>
                     {cat == defaultCat
                     ?
-                        <button type='button' onClick={handleAdd}>Add cat</button>
+                        <button type='submit' onClick={handleAdd}>Add cat</button>
                     :
                     <>
-                        <button type='button' onClick={handleUpdate}>Update cat</button>
-                        <button type='button' onClick={handleDelete}>Delete cat</button>
+                        <button type='submit' onClick={handleUpdate}>Update cat</button>
+                        <button type='submit' onClick={handleDelete}>Delete cat</button>
                     </>
                     }
                 </div>
