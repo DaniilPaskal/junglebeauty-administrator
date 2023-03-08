@@ -21,8 +21,6 @@ export async function QueryCats(table, predicate = []) {
     docRefs.forEach(doc => {
         cats.push({...doc.data(), id: doc.id});
     })
-
-    console.log(cats);
     
     return cats;
 }
@@ -89,8 +87,7 @@ export async function GetAllImages(filepath) {
     result.items.forEach(image => {
         images.push(image.fullPath);
     })
-
-    console.log(images);
+    
     return images;
 }
 
