@@ -50,13 +50,13 @@ export async function UpdateCat(table, cat) {
             [key]: cat[key]
         })
     });
-
+    
     if (table == 'Parents') {
         const kittens = QueryCats('Kittens', [cat.sex == 'male' ? 'father' : 'mother', '==', cat.name]);
         
         (await kittens).map(async (kitten) => {
             await updateDoc(kitten, {
-                [cat.sex == 'male' ? father : mother]: cat.name
+                [cat.sex == 'male' ? 'father' : 'mother']: cat.name
             })
         })
     }
