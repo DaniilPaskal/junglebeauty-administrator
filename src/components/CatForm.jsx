@@ -161,10 +161,13 @@ const CatForm = ({ cat = defaultCat }) => {
                     }
                 </div>
             </form>
-            <ImageCarousel cat={cat} />
-            <div className='buttons-container'>
-                <button type='button' onClick={handleImageUpload}>Upload images</button>
-            </div>
+
+            {cat != defaultCat &&
+                <div className='carousel-container'>
+                    <ImageCarousel cat={cat} />
+                    <button type='button' onClick={handleImageUpload}>Upload images</button>
+                </div>
+            }
 
             <div className='buttons-container'>
                 {cat == defaultCat
