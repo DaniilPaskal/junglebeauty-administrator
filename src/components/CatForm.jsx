@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { InsertCat, UpdateCat, DeleteCat } from './FirebaseFunctions';
+import { InsertCat, UpdateCat, UpdateChildren, DeleteCat } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
@@ -37,6 +37,9 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleUpdate = async () => {
         UpdateCat(`${type}s`, newCat);
+        if (type == 'parent') {
+            UpdateChildren(cat.name, newCat.name, cat.sex);
+        }
     }
 
     const handleDelete = async () => {
@@ -126,7 +129,7 @@ const CatForm = ({ cat = defaultCat }) => {
                     ?
                     <>
                         <label className='form-label'>
-                            Mother:
+                            Mother: {mother}
                             <br />
                             <select name='mother' defaultValue={mother} onChange={handleChange}>
                                 
@@ -134,7 +137,7 @@ const CatForm = ({ cat = defaultCat }) => {
                         </label>
                         <br />
                         <label className='form-label'>
-                            Father:
+                            Father: {father}
                             <br />
                             <select name='father' defaultValue={father || ''} onChange={handleChange}>
                                 
