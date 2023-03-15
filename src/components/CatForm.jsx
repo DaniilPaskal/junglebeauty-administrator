@@ -128,7 +128,7 @@ const CatForm = ({ cat = defaultCat }) => {
                         <label className='form-label'>
                             Mother:
                             <br />
-                            <select name='mother' defaultValue={mother || ''} onChange={handleChange}>
+                            <select name='mother' defaultValue={mother} onChange={handleChange}>
                                 
                             </select>
                         </label>
@@ -157,22 +157,22 @@ const CatForm = ({ cat = defaultCat }) => {
                     </>
                     }
                 </div>
-
-                <div className='buttons-container'>
-                    {cat == defaultCat
-                    ?
-                        <button type='button' onClick={handleAdd}>Add cat</button>
-                    :
-                    <>
-                        <button type='button' onClick={handleUpdate}>Update cat</button>
-                        <button type='button' onClick={handleDelete}>Delete cat</button>
-                    </>
-                    }
-                </div>
             </form>
             <ImageCarousel cat={cat} />
             <div className='buttons-container'>
                 <button type='button' onClick={handleImageUpload}>Upload images</button>
+            </div>
+
+            <div className='buttons-container'>
+                {cat == defaultCat
+                ?
+                    <button type='button' onClick={handleAdd}>Add cat</button>
+                :
+                <>
+                    <button type='button' onClick={handleUpdate}>Update cat</button>
+                    <button type='button' onClick={handleDelete}>Delete cat</button>
+                </>
+                }
             </div>
         </div>
     );
