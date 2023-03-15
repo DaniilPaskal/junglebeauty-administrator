@@ -42,24 +42,28 @@ export async function InsertCat(table, cat) {
 
 export async function UpdateCat(table, cat) {
     const id = cat.id;
-
     const docRef = doc(db, table, id);
+
+    console.log(docRef);
 
     Object.keys(cat).map(async (key) => {
         await updateDoc(docRef, {
             [key]: cat[key]
         })
     });
-    
-    if (table == 'Parents') {
-        const kittens = QueryCats('Kittens', [cat.sex == 'male' ? 'father' : 'mother', '==', cat.name]);
+}
+
+export async function UpdateChildren(oldName, newName, parentSex) {
+    const kittens = QueryCats('kittens', [parentSex == 'male' ? 'father' : 'mother', '==', oldName]);
         
-        (await kittens).map(async (kitten) => {
-            await updateDoc(kitten, {
-                [cat.sex == 'male' ? 'father' : 'mother']: cat.name
-            })
+    (await kittens).map(async (kitten) => {
+        console.log(kitten);
+
+        const kittenDocRef = doc(db, 'kittens', kitten.id);
+        await updateDoc(kittenDocRef, {
+            [parentSex == 'male' ? 'father' : 'mother']: newName
         })
-    }
+    })
 }
 
 export function DeleteCat(table, cat) {
