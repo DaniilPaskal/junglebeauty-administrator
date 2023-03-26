@@ -33,6 +33,7 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
+        resetForm();
     }
 
     const handleUpdate = async () => {
