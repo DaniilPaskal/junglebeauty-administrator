@@ -63,16 +63,10 @@ export async function UpdateChildren(oldName, newName, parentSex) {
     })
 }
 
-export function DeleteCat(table, cat) {
+export async function DeleteCat(table, cat) {
     const id = cat.id;
-    
-    const deleteCat = async () => {
-        await deleteDoc(doc(db, table, id));
-    };
 
-    useEffect(() => {
-        deleteCat();
-    }, []);
+    await deleteDoc(doc(db, table, id));
 }
 
 export function GetCatID(name, date) {
