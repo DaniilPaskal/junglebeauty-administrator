@@ -7,10 +7,11 @@ const ViewCats = () => {
     const [kittens, setKittens] = useState([]);
 
     const getCats = async () => {
-        const kings = await QueryCats('parents', ['sex', '==', 'male']);
-        const queens = await QueryCats('parents', ['sex', '==', 'female']);
+        //const kings = await QueryCats('parents', ['sex', '==', 'male']);
+        //const queens = await QueryCats('parents', ['sex', '==', 'female']);
         const kittens = await QueryCats('kittens');
-        const parents = [...kings, ...queens];
+        //const parents = [...kings, ...queens];
+        const parents = await QueryCats('parents');
         
         setParents(parents);
         setKittens(kittens);
