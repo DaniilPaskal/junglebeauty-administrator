@@ -24,16 +24,19 @@ const CatForm = ({ cat = defaultCat }) => {
     
     const resetForm = () => {
         setNewCat(defaultCat);
+        window.location.reload(false);
     }
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
+        window.location.reload(false);
     }
 
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
         resetForm();
+        window.location.reload(false);
     }
 
     const handleUpdate = async () => {
@@ -45,6 +48,7 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleDelete = async () => {
         DeleteCat(`${type}s`, cat);
+        window.location.reload(false);
     }
 
     const handleImageUpload = async () => {
