@@ -20,6 +20,7 @@ const defaultCat = {
 const CatForm = ({ cat = defaultCat }) => {
     const [newCat, setNewCat] = useState(cat);
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = newCat;
+    const [images, setImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
     
     //
@@ -68,7 +69,7 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleImageUpload = async () => {
-        
+        console.log(images);
     }
 
     return (
@@ -188,6 +189,14 @@ const CatForm = ({ cat = defaultCat }) => {
                         </label>
                     </>
                     }
+                </div>
+
+                <div>
+                    <label className='form-label'>
+                        Images:
+                        <br />
+                        <input name='images' type='file' value={images} multiple onChange={(e) => setImages(e.target.value)}/>
+                    </label>
                 </div>
             </form>
 
