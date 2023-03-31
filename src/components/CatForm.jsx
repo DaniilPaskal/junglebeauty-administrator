@@ -57,7 +57,6 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleUpdate = async () => {
-        console.log('eh?');
         UpdateCat(`${type}s`, newCat);
         if (type == 'parent') {
             UpdateChildren(cat.name, newCat.name, cat.sex);
