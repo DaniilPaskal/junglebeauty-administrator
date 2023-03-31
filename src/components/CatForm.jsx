@@ -7,10 +7,10 @@ import './../App.css';
 const defaultCat = {
     name: '',
     date: '',
-    sex: '',
+    sex: 'male',
     adj: '',
-    colour: '',
-    status: '',
+    colour: 'silver',
+    status: 'active',
     father: '',
     mother: '',
     cattery: '',
@@ -39,7 +39,6 @@ const CatForm = ({ cat = defaultCat }) => {
     }, []);
     //
 
-
     const resetForm = () => {
         setNewCat(defaultCat);
         window.location.reload(false);
@@ -51,13 +50,9 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleAdd = async () => {
-        if (newCat.sex) {
-            InsertCat(`${type}s`, newCat);
-            resetForm();
-            window.location.reload(false);
-        } else {
-            alert('missing properties');
-        }
+        InsertCat(`${type}s`, newCat);
+        resetForm();
+        window.location.reload(false);
     }
 
     const handleUpdate = async () => {
