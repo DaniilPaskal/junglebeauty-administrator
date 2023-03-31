@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import { InsertCat, UpdateCat, UpdateChildren, DeleteCat } from './FirebaseFunctions';
+import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
@@ -22,6 +22,24 @@ const CatForm = ({ cat = defaultCat }) => {
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = newCat;
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
     
+    //
+    const [kings, setKings] = useState([]);
+    const [queens, setQueens] = useState([]);
+
+    const getCats = async () => {
+        const kings = await QueryCats('parents', ['sex', '==', 'male']);
+        const queens = await QueryCats('parents', ['sex', '==', 'female']);
+        
+        setKings(kings);
+        setQueens(queens);
+    }
+    
+    useEffect(() => {
+        getCats();
+    }, []);
+    //
+
+
     const resetForm = () => {
         setNewCat(defaultCat);
         window.location.reload(false);
@@ -30,13 +48,16 @@ const CatForm = ({ cat = defaultCat }) => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
-        window.location.reload(false);
     }
 
     const handleAdd = async () => {
-        InsertCat(`${type}s`, newCat);
-        resetForm();
-        window.location.reload(false);
+        if (newCat.sex) {
+            InsertCat(`${type}s`, newCat);
+            resetForm();
+            window.location.reload(false);
+        } else {
+            alert('missing properties');
+        }
     }
 
     const handleUpdate = async () => {
@@ -137,7 +158,11 @@ const CatForm = ({ cat = defaultCat }) => {
                             Mother: {mother}
                             <br />
                             <select name='mother' defaultValue={mother} onChange={handleChange}>
-                                
+                                {queens.map((queen) => {
+                                    return (
+                                        <option value={queen.name} key={queen.id}>{queen.name}</option>
+                                    );
+                                })}
                             </select>
                         </label>
                         <br />
@@ -145,7 +170,11 @@ const CatForm = ({ cat = defaultCat }) => {
                             Father: {father}
                             <br />
                             <select name='father' defaultValue={father || ''} onChange={handleChange}>
-                                
+                                {kings.map((king) => {
+                                    return (
+                                        <option value={king.name} key={king.id}>{king.name}</option>
+                                    );
+                                })}
                             </select>
                         </label>
                     </>
