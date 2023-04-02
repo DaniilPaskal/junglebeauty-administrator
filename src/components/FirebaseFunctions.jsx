@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getDatabase, push, set } from 'firebase/database';
 import { signOut } from 'firebase/auth';
-import { ref, getStorage, getDownloadURL, listAll } from 'firebase/storage';
+import { ref, getStorage, getDownloadURL, listAll, deleteObject } from 'firebase/storage';
 import { auth } from '../firebase';
 import { db } from '../firebase';
 
@@ -83,11 +83,12 @@ export async function GetImage(filepath) {
 }
 
 export async function UploadImage(filepath) {
-    
+
 }
 
 export async function DeleteImage(filepath) {
-
+    const storage = getStorage();
+    deleteObject(ref(storage, filepath));
 }
 
 export async function GetAllImages(filepath) {
