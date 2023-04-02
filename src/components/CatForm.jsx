@@ -70,6 +70,13 @@ const CatForm = ({ cat = defaultCat }) => {
         window.location.reload(false);
     }
 
+    const handleImageSelect = (event) => {
+        const { value } = event.target;
+        console.log(value);
+        console.log(images);
+        setImages(images.push(value));
+    }
+
     const handleImageUpload = async () => {
         console.log(images);
     }
@@ -197,7 +204,7 @@ const CatForm = ({ cat = defaultCat }) => {
                     <label className='form-label'>
                         Images:
                         <br />
-                        <input name='images' type='file' value={images} multiple onChange={(e) => setImages(e.target.value)}/>
+                        <input name='images' type='file' multiple onChange={handleImageSelect}/>
                     </label>
                 </div>
             </form>
