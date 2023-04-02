@@ -82,6 +82,10 @@ export async function GetImage(filepath) {
     return url;
 }
 
+export async function DeleteImage(filepath) {
+    
+}
+
 export async function GetAllImages(filepath) {
     const images = [];
     const storage = getStorage();
