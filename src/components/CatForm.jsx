@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat } from './FirebaseFunctions';
+import { GetCatFilepath } from './Functions';
+import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat, GetAllImages } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
