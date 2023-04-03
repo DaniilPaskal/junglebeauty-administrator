@@ -6,6 +6,8 @@ import { ref, getStorage, getDownloadURL, listAll, deleteObject } from 'firebase
 import { auth } from '../firebase';
 import { db } from '../firebase';
 
+const storage = getStorage();
+
 export async function QueryCats(table, predicate = []) {
     const cats = [];
     var q;
@@ -76,24 +78,21 @@ export function GetCatID(name, date) {
 }
 
 export async function GetImage(filepath) {
-    const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/${filepath}`));
 
     return url;
 }
 
 export async function UploadImages(filepath, images) {
-
+    
 }
 
 export async function DeleteImage(filepath) {
-    const storage = getStorage();
     deleteObject(ref(storage, filepath));
 }
 
 export async function GetAllImages(filepath) {
     const images = [];
-    const storage = getStorage();
     const storageRef = ref(storage, filepath);
     
     const result = await listAll(storageRef);
@@ -106,7 +105,6 @@ export async function GetAllImages(filepath) {
 }
 
 export async function GetList(listName) {
-    const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`));
     const list = await fetch(url);
     const data = await list.json();
@@ -115,7 +113,6 @@ export async function GetList(listName) {
 }
 
 export async function GetText(textName) {
-    const storage = getStorage();
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Texts/${textName}`));
     const list = await fetch(url);
     const data = await list.json();
