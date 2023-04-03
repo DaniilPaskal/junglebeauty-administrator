@@ -82,7 +82,7 @@ export async function GetImage(filepath) {
     return url;
 }
 
-export async function UploadImage(filepath) {
+export async function UploadImages(filepath, images) {
 
 }
 
