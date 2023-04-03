@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { GetCatFilepath } from './Functions';
-import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat, GetAllImages } from './FirebaseFunctions';
+import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat, GetAllImages, UploadImages } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
@@ -76,6 +76,7 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleImageUpload = async () => {
         console.log(images);
+        UploadImages(GetCatFilepath(cat), images);
     }
 
     return (
