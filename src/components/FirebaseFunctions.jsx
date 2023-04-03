@@ -84,7 +84,9 @@ export async function GetImage(filepath) {
 }
 
 export async function UploadImages(filepath, images) {
-    
+    images.map((image) => {
+        const imageRef = ref(storage, image);
+    })
 }
 
 export async function DeleteImage(filepath) {
