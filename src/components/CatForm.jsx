@@ -204,7 +204,7 @@ const CatForm = ({ cat = defaultCat }) => {
                     <label className='form-label'>
                         Images:
                         <br />
-                        <input name='images' type='file' multiple onChange={handleImageSelect}/>
+                        <input name='images' type='file' accept='image/*' multiple onChange={handleImageSelect}/>
                     </label>
                 </div>
             </form>
