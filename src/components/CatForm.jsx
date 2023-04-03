@@ -71,10 +71,7 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleImageSelect = (event) => {
-        const { value } = event.target;
-        console.log(value);
-        console.log(images);
-        setImages(images.push(value));
+        setImages(event.target.files);
     }
 
     const handleImageUpload = async () => {
