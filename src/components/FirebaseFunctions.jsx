@@ -83,21 +83,6 @@ export async function GetImage(filepath) {
     return url;
 }
 
-export async function UploadImages(filepath, images) {
-    console.log(filepath);
-    console.log(images);
-    Array.from(images).map((image) => {
-        console.log(image);
-        const imageRef = ref(storage, `${filepath}/${image.name}`);
-        console.log(imageRef);
-        uploadBytes(imageRef, image);
-    })
-}
-
-export async function DeleteImage(filepath) {
-    deleteObject(ref(storage, filepath));
-}
-
 export async function GetAllImages(filepath) {
     const images = [];
     const storageRef = ref(storage, filepath);
@@ -109,6 +94,17 @@ export async function GetAllImages(filepath) {
     })
     
     return images;
+}
+
+export async function UploadImages(filepath, images) {
+    Array.from(images).map((image) => {
+        const imageRef = ref(storage, `${filepath}/${image.name}`);
+        uploadBytes(imageRef, image);
+    })
+}
+
+export async function DeleteImage(filepath) {
+    deleteObject(ref(storage, filepath));
 }
 
 export async function GetList(listName) {
