@@ -41,11 +41,6 @@ const CatForm = ({ cat = defaultCat }) => {
     }, []);
     //
 
-    const resetForm = () => {
-        setNewCat(defaultCat);
-        window.location.reload(false);
-    }
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
