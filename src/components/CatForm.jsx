@@ -22,22 +22,25 @@ const CatForm = ({ cat = defaultCat }) => {
     const [newCat, setNewCat] = useState(cat);
     const { name, date, sex, adj, colour, status, father, mother, cattery, location } = newCat;
     const [images, setImages] = useState([]);
+    const [newImages, setNewImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
     
     //
     const [kings, setKings] = useState([]);
     const [queens, setQueens] = useState([]);
 
-    const getCats = async () => {
+    const getData = async () => {
         const kings = await QueryCats('parents', ['sex', '==', 'male']);
         const queens = await QueryCats('parents', ['sex', '==', 'female']);
+        const images = await GetAllImages(GetCatFilepath(cat));
         
+        setImages(images);
         setKings(kings);
         setQueens(queens);
     }
     
     useEffect(() => {
-        getCats();
+        getData();
     }, []);
     //
 
@@ -48,8 +51,8 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
-        if (images.length > 0) {
-            UploadImages(GetCatFilepath(cat), images);
+        if (newImages.length > 0) {
+            UploadImages(GetCatFilepath(cat), newImages);
         }
         window.location.reload(false);
     }
@@ -59,8 +62,8 @@ const CatForm = ({ cat = defaultCat }) => {
         if (type == 'parent') {
             UpdateChildren(cat.name, newCat.name, cat.sex);
         }
-        if (images.length > 0) {
-            UploadImages(GetCatFilepath(cat), images);
+        if (newImages.length > 0) {
+            UploadImages(GetCatFilepath(cat), newImages);
         }
         window.location.reload(false);
     }
@@ -71,7 +74,7 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleImageSelect = (event) => {
-        setImages(event.target.files);
+        setNewImages(event.target.files);
     }
 
     return (
@@ -202,11 +205,9 @@ const CatForm = ({ cat = defaultCat }) => {
                 </div>
             </form>
 
-            {cat != defaultCat &&
-                <div className='carousel-container'>
-                    <ImageCarousel cat={cat} />
-                </div>
-            }
+            <div className='carousel-container'>
+                <ImageCarousel images={[...images, newImages]} />
+            </div>
 
             <div className='buttons-container'>
                 {cat == defaultCat
