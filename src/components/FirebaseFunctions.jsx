@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, doc, query, where, getDocs, addDoc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getDatabase, push, set } from 'firebase/database';
 import { signOut } from 'firebase/auth';
-import { ref, getStorage, getDownloadURL, listAll, deleteObject } from 'firebase/storage';
+import { ref, getStorage, getDownloadURL, listAll, deleteObject, uploadBytes } from 'firebase/storage';
 import { auth } from '../firebase';
 import { db } from '../firebase';
 
@@ -84,8 +84,13 @@ export async function GetImage(filepath) {
 }
 
 export async function UploadImages(filepath, images) {
-    images.map((image) => {
-        const imageRef = ref(storage, image);
+    console.log(filepath);
+    console.log(images);
+    Array.from(images).map((image) => {
+        console.log(image);
+        const imageRef = ref(storage, `${filepath}/${image.name}`);
+        console.log(imageRef);
+        uploadBytes(imageRef, image);
     })
 }
 
