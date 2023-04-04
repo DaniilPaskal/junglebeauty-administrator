@@ -53,7 +53,9 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
-        resetForm();
+        if (images.length > 0) {
+            UploadImages(GetCatFilepath(cat), images);
+        }
         window.location.reload(false);
     }
 
@@ -61,6 +63,9 @@ const CatForm = ({ cat = defaultCat }) => {
         UpdateCat(`${type}s`, newCat);
         if (type == 'parent') {
             UpdateChildren(cat.name, newCat.name, cat.sex);
+        }
+        if (images.length > 0) {
+            UploadImages(GetCatFilepath(cat), images);
         }
         window.location.reload(false);
     }
@@ -72,11 +77,6 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleImageSelect = (event) => {
         setImages(event.target.files);
-    }
-
-    const handleImageUpload = async () => {
-        console.log(images);
-        UploadImages(GetCatFilepath(cat), images);
     }
 
     return (
@@ -210,7 +210,6 @@ const CatForm = ({ cat = defaultCat }) => {
             {cat != defaultCat &&
                 <div className='carousel-container'>
                     <ImageCarousel cat={cat} />
-                    <button type='button' onClick={handleImageUpload}>Upload images</button>
                 </div>
             }
 
