@@ -5,17 +5,7 @@ import { GetCatFilepath } from './Functions';
 import { GetAllImages } from './FirebaseFunctions';
 import './../App.css';
 
-const ImageCarousel = ({ cat }) => {  
-    const [images, setImages] = useState([]);
-  
-    const getData = async () => {
-        const images = await GetAllImages(GetCatFilepath(cat));
-        setImages(images);
-      }
-    
-    useEffect(() => {
-        getData();
-    }, [])
+const ImageCarousel = ({ images }) => {  
 
     return (
     <Carousel 
