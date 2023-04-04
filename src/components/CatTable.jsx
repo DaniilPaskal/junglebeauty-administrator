@@ -4,6 +4,7 @@ import CatRow from './CatRow';
 import './../App.css';
 
 const CatTable = ({ cats }) => {
+  console.log(cats);
 
   return (
     <>
@@ -17,7 +18,7 @@ const CatTable = ({ cats }) => {
           </tr>
         </thead>
         <tbody>
-          {cats.map((cat) => {
+          {cats.sort((a,b) => a.date > b.date ? -1 : 1).map((cat) => {
             return (
               <CatRow cat={cat} key={cat.id} />
             );
