@@ -15,12 +15,13 @@ const defaultCat = {
     father: '',
     mother: '',
     cattery: '',
-    location: ''
+    location: '',
+    videos: []
 }
 
 const CatForm = ({ cat = defaultCat }) => {
     const [newCat, setNewCat] = useState(cat);
-    const { name, date, sex, adj, colour, status, father, mother, cattery, location } = newCat;
+    const { name, date, sex, adj, colour, status, father, mother, cattery, location, videos = [] } = newCat;
     const [images, setImages] = useState([]);
     const [newImages, setNewImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
@@ -75,6 +76,10 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleImageSelect = (event) => {
         setNewImages(event.target.files);
+    }
+
+    const handleVideoChange = (event) => {
+        
     }
 
     return (
@@ -201,6 +206,21 @@ const CatForm = ({ cat = defaultCat }) => {
                         Images:
                         <br />
                         <input name='images' type='file' accept='image/*' multiple onChange={handleImageSelect}/>
+                    </label>
+                </div>
+
+                <div>
+                    <label className='form-label'>
+                        Videos:
+                        <br />
+                        <table>
+                            {videos.map((video) => {
+                                <tr>{video}</tr>
+                            })}
+                            <tr>
+                                <input name='video' type='url' onChange={handleVideoChange} />
+                            </tr>
+                        </table>
                     </label>
                 </div>
             </form>
