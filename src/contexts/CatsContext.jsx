@@ -10,3 +10,7 @@ export function CatsProvider({ children, value }) {
         </CatsContext.Provider>
     );
 }
+
+export function useCats() {
+    return useContext(CatsContext);
+}
