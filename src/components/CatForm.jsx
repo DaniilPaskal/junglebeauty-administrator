@@ -175,7 +175,7 @@ const CatForm = ({ cat = defaultCat }) => {
                         <label className='form-label'>
                             Father: {father}
                             <br />
-                            <select name='father' defaultValue={father || ''} onChange={handleChange}>
+                            <select name='father' defaultValue={father} onChange={handleChange}>
                                 {kings.map((king) => {
                                     return (
                                         <option value={king.name} key={king.id}>{king.name}</option>
@@ -189,13 +189,13 @@ const CatForm = ({ cat = defaultCat }) => {
                         <label className='form-label'>
                             Cattery:
                             <br />
-                            <input name='cattery' type='text' defaultValue={cattery || ''} onChange={handleChange} />
+                            <input name='cattery' type='text' defaultValue={cattery} onChange={handleChange} />
                         </label>
                         <br />
                         <label className='form-label'>
                             Location:
                             <br />
-                            <input name='location' type='text' defaultValue={location || ''} onChange={handleChange} />
+                            <input name='location' type='text' defaultValue={location} onChange={handleChange} />
                         </label>
                     </>
                     }
