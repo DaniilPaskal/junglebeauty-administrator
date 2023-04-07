@@ -1,33 +1,18 @@
 import { useState, useEffect, useContext } from "react";
 import { QueryCats } from "../components/FirebaseFunctions";
+import { useCats } from "../contexts/CatsContext";
 import CatTable from "../components/CatTable";
 
 const ViewCats = () => {
-    const [parents, setParents] = useState([]);
-    const [kittens, setKittens] = useState([]);
-
-    const getCats = async () => {
-        //const kings = await QueryCats('parents', ['sex', '==', 'male']);
-        //const queens = await QueryCats('parents', ['sex', '==', 'female']);
-        const kittens = await QueryCats('kittens');
-        //const parents = [...kings, ...queens];
-        const parents = await QueryCats('parents');
-        
-        setParents(parents);
-        setKittens(kittens);
-    }
-    
-    useEffect(() => {
-        getCats();
-    }, []);
+    const cats = useCats();
 
     return (
         <>
             <h2>Parents:</h2>
-            <CatTable cats={parents} />
+            <CatTable cats={cats.parents} />
 
             <h2>Kittens:</h2>
-            <CatTable cats={kittens} />
+            <CatTable cats={cats.kittens} />
         </>
     );
 }
