@@ -10,7 +10,7 @@ export function CatsProvider({ children }) {
         const parents = await QueryCats('parents');
         const kittens = await QueryCats('kittens');
         
-        setCats({parents:{parents}, kittens:{kittens}})
+        setCats({parents, kittens})
     }
     
     useEffect(() => {
