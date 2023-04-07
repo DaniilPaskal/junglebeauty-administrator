@@ -4,16 +4,14 @@ import { QueryCats } from "../components/FirebaseFunctions";
 
 const CatsContext = React.createContext();
 
-export function CatsProvider({ children, value }) {
-    const [parents, setParents] = useState(null);
-    const [kittens, setKittens] = useState(null);
+export function CatsProvider({ children }) {
+    const [cats, setCats] = useState(null);
 
     const getCats = async () => {
         const parents = await QueryCats('parents');
         const kittens = await QueryCats('kittens');
         
-        setParents(parents);
-        setKittens(kittens);
+        setCats({parents:{parents}, kittens:{kittens}})
     }
     
     useEffect(() => {
@@ -21,7 +19,7 @@ export function CatsProvider({ children, value }) {
     }, []);
 
     return (
-        <CatsContext.Provider value={value}>
+        <CatsContext.Provider value={cats}>
             {children}
         </CatsContext.Provider>
     );
