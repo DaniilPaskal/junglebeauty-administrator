@@ -26,39 +26,41 @@ function App() {
 
   return (
     <AuthProvider value={{user}}>
-      <div className="App">
-        <Navigation />
-        <div className='page-content'>
-          <Routes>
-            <Route path='login' element={<Login />} />
-            <Route index element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            } />
-            <Route path='add-cats' element={
-              <PrivateRoute>
-                <AddCats />
-              </PrivateRoute>
-            } />
-            <Route path='view-cats' element={
-              <PrivateRoute>
-                <ViewCats />
-              </PrivateRoute>
-            } />
-            <Route path='news' element={
-              <PrivateRoute>
-                <News />
-              </PrivateRoute>
-            } />
-            <Route path='accounts' element={
-              <PrivateRoute>
-                <Accounts />
-              </PrivateRoute>
-            } />
-          </Routes>
+      <CatsProvider>
+        <div className="App">
+          <Navigation />
+          <div className='page-content'>
+            <Routes>
+              <Route path='login' element={<Login />} />
+              <Route index element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              } />
+              <Route path='add-cats' element={
+                <PrivateRoute>
+                  <AddCats />
+                </PrivateRoute>
+              } />
+              <Route path='view-cats' element={
+                <PrivateRoute>
+                  <ViewCats />
+                </PrivateRoute>
+              } />
+              <Route path='news' element={
+                <PrivateRoute>
+                  <News />
+                </PrivateRoute>
+              } />
+              <Route path='accounts' element={
+                <PrivateRoute>
+                  <Accounts />
+                </PrivateRoute>
+              } />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </CatsProvider>
     </AuthProvider>
   );
 }
