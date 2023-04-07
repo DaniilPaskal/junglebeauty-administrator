@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { GetCatFilepath } from './Functions';
+import { useCats } from '../contexts/CatsContext';
 import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat, GetAllImages, UploadImages } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
@@ -25,25 +26,9 @@ const CatForm = ({ cat = defaultCat }) => {
     const [images, setImages] = useState([]);
     const [newImages, setNewImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
-    
-    //
-    const [kings, setKings] = useState([]);
-    const [queens, setQueens] = useState([]);
-
-    const getData = async () => {
-        const kings = await QueryCats('parents', ['sex', '==', 'male']);
-        const queens = await QueryCats('parents', ['sex', '==', 'female']);
-        const images = await GetAllImages(GetCatFilepath(cat));
-        
-        setImages(images);
-        setKings(kings);
-        setQueens(queens);
-    }
-    
-    useEffect(() => {
-        getData();
-    }, []);
-    //
+    const cats = useCats();
+    const kings = cats.parents.filter((cat) => cat.sex == 'male');
+    const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
