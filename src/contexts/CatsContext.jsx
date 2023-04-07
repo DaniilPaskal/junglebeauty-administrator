@@ -1,5 +1,4 @@
-import { React, useState, useEffect } from "react";
-import { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { QueryCats } from "../components/FirebaseFunctions";
 
 const CatsContext = React.createContext();
