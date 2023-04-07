@@ -15,17 +15,8 @@ import Navigation from './components/Navigation';
 import './App.css';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [cats, setCats] = useState(null);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    })
-  }, []);
-
   return (
-    <AuthProvider value={{user}}>
+    <AuthProvider>
       <CatsProvider>
         <div className="App">
           <Navigation />
