@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import CatRow from './CatRow';
 import './../App.css';
