@@ -51,7 +51,7 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleVideoChange = (event) => {
         const { value } = event.target;
-        setNewCat({ ...newCat, [videos]: value.split(',')})
+        setNewCat({ ...newCat, [videos]: value.split(',')});
     }
 
     const handleAdd = async () => {
