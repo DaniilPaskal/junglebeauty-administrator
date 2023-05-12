@@ -252,7 +252,7 @@ a:hover{
 /* Cat Table */
 
 .cat-row {
-
+  cursor: pointer;
 }
 
 cat-row:hover {
