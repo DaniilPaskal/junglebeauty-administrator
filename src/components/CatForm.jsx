@@ -30,6 +30,15 @@ const CatForm = ({ cat = defaultCat }) => {
     const kings = cats.parents.filter((cat) => cat.sex == 'male');
     const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
+    const getData = async () => {
+        const images = await GetAllImages(GetCatFilepath(cat));
+        setImages(images);
+    }
+
+    useEffect(() => {
+        getData();
+    }, [])
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
