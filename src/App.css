@@ -1,11 +1,13 @@
 :root {
   --background-green: rgba(26, 133, 79, 0.85);
+  --background-white: rgba(236, 236, 236, 0.85);
   --link-green: rgb(25, 223, 58);
   --link-active-green: rgba(25, 223, 58, 0.911);
   --accent-green: rgb(4, 110, 27);
   --nav-black: rgba(0, 10, 0, 0.75);
   --nav-white: rgb(236, 236, 236);
   --text-white: rgb(250, 250, 250);
+  --text-black: rgb(0, 0, 0);
   --carousel-black: rgba(0, 10, 0, 0.4);
 }
 
