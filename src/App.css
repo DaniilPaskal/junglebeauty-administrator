@@ -12,8 +12,8 @@
 }
 
 .App {
-  color: black;
-  background-color: white;
+  color: var(--text-white);
+  background-color: var(--background-green);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -28,7 +28,7 @@
 .page-background {
   text-align: center;
   border-radius: 10pt;
-  background-color: rgba(26, 133, 79, 0.85);
+  background-color: var(--background-green);
   width: 95%;
   padding: 10pt;
   margin: auto;
@@ -39,6 +39,10 @@
 .page-content {
   min-height: 75%;
   max-height: auto;
+}
+
+.page-content li {
+  background-color: var(--background-white);
 }
 
 .paragraph-variant {
@@ -52,11 +56,11 @@
 }
 
 a {
-  color: rgb(25, 223, 58);
+  color: var(--link-green);
 }
 
 a:hover{
-  color: rgb(25, 223, 58);
+  color: var(--link-active-green);
 }
 
 /* Page components */
@@ -113,7 +117,7 @@ a:hover{
 /* Navigation */
 
 .nav-bar {
-  background-color: rgba(0, 10, 0, 0.75) !important;
+  background-color: var(--nav-black) !important;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -141,33 +145,33 @@ a:hover{
 }
 
 .nav-link {
-  color: rgb(236, 236, 236) !important;
+  color: var(--nav-white) !important;
   padding: 10px 15px;
   cursor: pointer;
   text-decoration: none;
 }
 
 .nav-link.active {
-  color: rgba(25, 223, 58, 0.911) !important;
+  color: var(--link-active-green) !important;
 }
 
 .dropdown-links-container {
-  color: rgb(236, 236, 236);
+  color: var(--nav-white);
   text-align: center;
 }
 
 .dropdown-link {
-  color: rgb(236, 236, 236);
+  color: var(--nav-white);
 }
 
 .dropdown-menu {
-  background-color: rgba(0, 10, 0, 0.75) !important;
+  background-color: var(--nav-black) !important;
 }
 
 /* Footer */
 
 .footer {
-  background-color: rgba(0, 10, 0, 0.6);
+  background-color: var(--nav-black);
   width: 100%;
   bottom: 0;
 }
@@ -200,7 +204,7 @@ a:hover{
 /* Cat Cards */
 
 .cat-card-carousel {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--carousel-black);
   border-radius: 10pt;
   width: 95%;
   padding: 10pt;
@@ -218,8 +222,8 @@ a:hover{
 .cat-card {
   border-radius: 10pt;
   cursor: pointer;
-  color: green;
-  background-color: white;
+  color: var(--accent-green);
+  background-color: var(--background-white);
   text-align: center;
   width: 90%;
 }
@@ -229,8 +233,8 @@ a:hover{
 }
 
 .cat-text {
-  color:green;
-  background-color: white;
+  color: var(--accent-green);
+  background-color: var(--background-white);
   font-size: larger;
 }
 
@@ -253,13 +257,13 @@ a:hover{
 }
 
 .accordion-header-text {
-  color:green;
+  color:var(--accent-green);
   font-size: large;
 }
 
 .accordion-item {
-  color: white;
-  background-color: rgba(0, 10, 0, 0.75);
+  color: var(--background-white);
+  background-color: var(--nav-black);
 }
 
 /* Cat Table */
