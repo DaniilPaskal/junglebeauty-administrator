@@ -42,7 +42,9 @@
 }
 
 .page-content li {
+  color: var(--link-green);
   background-color: var(--background-white);
+  border-radius: 10pt;
 }
 
 .paragraph-variant {
