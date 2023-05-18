@@ -12,8 +12,8 @@
 }
 
 .App {
-  color: var(--text-white);
-  background-color: var(--background-green);
+  color: var(--text-black);
+  background-color: var(--background-white);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -28,7 +28,6 @@
 .page-background {
   text-align: center;
   border-radius: 10pt;
-  background-color: var(--background-green);
   width: 95%;
   padding: 10pt;
   margin: auto;
