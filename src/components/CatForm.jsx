@@ -225,7 +225,7 @@ const CatForm = ({ cat = defaultCat }) => {
             </form>
 
             <div className='carousel-container'>
-                <ImageCarousel images={[...images, newImages]} />
+                {cat != defaultCat && <ImageCarousel images={[...images, newImages]} />}
             </div>
 
             <div className='buttons-container'>
