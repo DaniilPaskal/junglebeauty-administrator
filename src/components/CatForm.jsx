@@ -36,7 +36,9 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     useEffect(() => {
-        getData();
+        if (cat != defaultCat) {
+            getData();
+        }
     }, [])
 
     const handleChange = (event) => {
