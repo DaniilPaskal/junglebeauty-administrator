@@ -5,16 +5,29 @@ import './../App.css';
 
 const CatTable = ({ cats }) => {
   const [sort, setSort] = useState('date');
+  const [order, setOrder] = useState('asc');
+
+  const changeSort = (category) => {
+    if (sort === category) {
+      if (order === 'asc') {
+        setOrder('des');
+      } else {
+        setOrder('asc');
+      }
+    } else {
+      setSort(category);
+    }
+  }
 
   return (
     <>
       <Table className='cat-table' striped bordered hover>
         <thead>
           <tr>
-            <th onClick={() => setSort('id')}>ID</th>
-            <th onClick={() => setSort('name')}>Name/Collar</th>
-            <th onClick={() => setSort('date')}>Birthdate</th>
-            <th onClick={() => setSort('status')}>Status</th>
+            <th onClick={() => changeSort('id')}>ID</th>
+            <th onClick={() => changeSort('name')}>Name/Collar</th>
+            <th onClick={() => changeSort('date')}>Birthdate</th>
+            <th onClick={() => changeSort('status')}>Status</th>
           </tr>
         </thead>
         <tbody>
