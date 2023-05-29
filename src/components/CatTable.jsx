@@ -8,7 +8,7 @@ const CatTable = ({ cats }) => {
 
   return (
     <>
-      <Table striped bordered hover>
+      <Table className='cat-table' striped bordered hover>
         <thead>
           <tr>
             <th onClick={() => setSort('id')}>ID</th>
