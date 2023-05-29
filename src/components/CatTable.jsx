@@ -18,7 +18,7 @@ const CatTable = ({ cats }) => {
           </tr>
         </thead>
         <tbody>
-          {cats.sort((a,b) => `${a}.${sort}` > `${b}.${sort}` ? -1 : 1).map((cat) => {
+          {cats.sort((a,b) => a[sort] > b[sort] ? -1 : 1).map((cat) => {
             return (
               <CatRow cat={cat} key={cat.id} />
             );
