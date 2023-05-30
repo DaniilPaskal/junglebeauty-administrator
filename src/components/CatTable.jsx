@@ -8,7 +8,7 @@ const CatTable = ({ cats }) => {
   const [order, setOrder] = useState('asc');
 
   const changeSort = (category) => {
-    if (sort === category) {
+    if (category === sort) {
       if (order === 'asc') {
         setOrder('des');
       } else {
@@ -16,6 +16,19 @@ const CatTable = ({ cats }) => {
       }
     } else {
       setSort(category);
+    }
+
+    cats.sort((a,b) => a[sort] > b[sort] ? 1 : -1);
+    if (order === 'des') {
+      cats.reverse();
+    }  
+  }
+
+  const compare = (a, b) => {
+    if (order === 'asc') {
+      return a[sort] - b[sort];
+    } else {
+      return b[sort] - a[sort];
     }
   }
 
@@ -31,7 +44,7 @@ const CatTable = ({ cats }) => {
           </tr>
         </thead>
         <tbody>
-          {cats.sort((a,b) => a[sort] > b[sort] ? -1 : 1).map((cat) => {
+          {cats.map((cat) => {
             return (
               <CatRow cat={cat} key={cat.id} />
             );
