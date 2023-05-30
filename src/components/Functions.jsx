@@ -7,7 +7,9 @@ export function GetCatID(cat) {
   }
 
 export function GetCatFilepath(cat) {
-  const { id, sex, mother } = cat;
+  const { sex, mother } = cat;
+  const id = cat.id || GetCatID(cat);
+  console.log(id);
   const idValues = id.split('.');
   const name = idValues[0];
   const date = idValues[1];
