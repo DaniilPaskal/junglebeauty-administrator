@@ -41,6 +41,20 @@ const CatForm = ({ cat = defaultCat }) => {
         }
     }, [])
 
+    const changeType = () => {
+        if (type === 'parent') {
+            setType('kitten');
+            newCat.status = 'available';
+            newCat.father = cats.parents.filter((cat) => cat.sex === 'male')[0].name;
+            newCat.mother = cats.parents.filter((cat) => cat.sex === 'female')[0].name;
+        } else {
+            setType('parent');
+            newCat.status = 'active';
+            newCat.father = '';
+            newCat.mother = '';
+        }
+    }
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setNewCat({ ...newCat, [name]: value });
@@ -88,7 +102,7 @@ const CatForm = ({ cat = defaultCat }) => {
                         <label className='form-label'>
                             Cat type:
                             <br />
-                            <select name='type' value={type} onChange={(e) => setType(e.target.value)}>
+                            <select name='type' value={type} onChange={changeType}>
                                 <option value='kitten'>Kitten</option>
                                 <option value='parent'>Parent</option>
                             </select>
