@@ -61,7 +61,7 @@ const CatForm = ({ cat = defaultCat }) => {
         if (newImages.length > 0) {
             UploadImages(GetCatFilepath(cat), newImages);
         }
-        window.location.reload(false);
+        alert('Cat added');
     }
 
     const handleUpdate = async () => {
