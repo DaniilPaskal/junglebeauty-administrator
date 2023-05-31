@@ -5,14 +5,14 @@ import './../App.css';
 
 const CatTable = ({ cats }) => {
   const [sort, setSort] = useState('date');
-  const [order, setOrder] = useState('asc');
+  const [order, setOrder] = useState('des');
 
   const changeSort = (category) => {
     if (category === sort) {
-      if (order === 'asc') {
-        setOrder('des');
-      } else {
+      if (order === 'des') {
         setOrder('asc');
+      } else {
+        setOrder('des');
       }
     } else {
       setSort(category);
