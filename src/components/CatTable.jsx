@@ -24,14 +24,6 @@ const CatTable = ({ cats }) => {
     }  
   }
 
-  const compare = (a, b) => {
-    if (order === 'asc') {
-      return a[sort] - b[sort];
-    } else {
-      return b[sort] - a[sort];
-    }
-  }
-
   return (
     <>
       <Table className='cat-table' striped bordered hover>
