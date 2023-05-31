@@ -8,20 +8,20 @@ const CatTable = ({ cats }) => {
   const [order, setOrder] = useState('des');
 
   const changeSort = (category) => {
+    console.log('category sort:', category, sort);
+
+    cats.sort((a,b) => a[category] > b[category] ? 1 : -1);
+
     if (category === sort) {
       if (order === 'des') {
         setOrder('asc');
       } else {
         setOrder('des');
+        cats.reverse();
       }
     } else {
       setSort(category);
     }
-
-    cats.sort((a,b) => a[sort] > b[sort] ? 1 : -1);
-    if (order === 'des') {
-      cats.reverse();
-    }  
   }
 
   return (
