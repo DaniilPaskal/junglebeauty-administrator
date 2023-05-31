@@ -8,8 +8,6 @@ const CatTable = ({ cats }) => {
   const [order, setOrder] = useState('des');
 
   const changeSort = (category) => {
-    console.log('category sort:', category, sort);
-
     cats.sort((a,b) => a[category] > b[category] ? 1 : -1);
 
     if (category === sort) {
