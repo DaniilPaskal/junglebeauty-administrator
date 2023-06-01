@@ -91,7 +91,6 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleDelete = async () => {
         DeleteCat(`${type}s`, cat);
-        window.location.reload(false);
     }
 
     return (
