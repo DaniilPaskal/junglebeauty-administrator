@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import { GetCatFilepath } from './Functions';
+import { getCatFilepath } from './Functions';
 import { useCats } from '../contexts/CatsContext';
 import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat, GetAllImages, UploadImages } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
@@ -31,7 +31,7 @@ const CatForm = ({ cat = defaultCat }) => {
     const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
     const getData = async () => {
-        const images = await GetAllImages(GetCatFilepath(cat));
+        const images = await GetAllImages(getCatFilepath(cat));
         setImages(images);
     }
 
@@ -73,7 +73,7 @@ const CatForm = ({ cat = defaultCat }) => {
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
         if (newImages.length > 0) {
-            UploadImages(GetCatFilepath(newCat), newImages);
+            UploadImages(getCatFilepath(newCat), newImages);
         }
         alert('Cat added');
     }
@@ -84,7 +84,7 @@ const CatForm = ({ cat = defaultCat }) => {
             UpdateChildren(cat.name, newCat.name, cat.sex);
         }
         if (newImages.length > 0) {
-            UploadImages(GetCatFilepath(newCat), newImages);
+            UploadImages(getCatFilepath(newCat), newImages);
         }
         console.log("??");
         //window.location.reload(false);
