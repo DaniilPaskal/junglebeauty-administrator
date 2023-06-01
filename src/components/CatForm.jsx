@@ -73,7 +73,7 @@ const CatForm = ({ cat = defaultCat }) => {
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
         if (newImages.length > 0) {
-            UploadImages(GetCatFilepath(cat), newImages);
+            UploadImages(GetCatFilepath(newCat), newImages);
         }
         alert('Cat added');
     }
@@ -84,9 +84,10 @@ const CatForm = ({ cat = defaultCat }) => {
             UpdateChildren(cat.name, newCat.name, cat.sex);
         }
         if (newImages.length > 0) {
-            UploadImages(GetCatFilepath(cat), newImages);
+            UploadImages(GetCatFilepath(newCat), newImages);
         }
-        window.location.reload(false);
+        console.log("??");
+        //window.location.reload(false);
     }
 
     const handleDelete = async () => {
