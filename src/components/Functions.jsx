@@ -1,15 +1,13 @@
 export function GetCatID(cat) {
     const { name, sex, mother, date } = cat;
     const type = (mother ? `Kitten` : `${sex == 'male' ? `King` : `Queen`}`);
-    const identifier = (type == 'kitten' ? `${date}-${name}-collar` : `${type}-${name}`);
-  
-    return identifier;
+    const id = (type == 'kitten' ? `${date}-${name}-collar` : `${type}-${name}`);
+    return id;
   }
 
 export function GetCatFilepath(cat) {
   const { sex, mother } = cat;
   const id = cat.id || GetCatID(cat);
-  console.log(id);
   const idValues = id.split('.');
   const name = idValues[0];
   const date = idValues[1];
