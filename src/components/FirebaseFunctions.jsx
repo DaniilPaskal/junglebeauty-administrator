@@ -69,6 +69,7 @@ export async function DeleteCat(table, cat) {
     const id = cat.id;
 
     await deleteDoc(doc(db, table, id));
+    window.location.reload(false);
 }
 
 export function GetCatID(name, date) {
