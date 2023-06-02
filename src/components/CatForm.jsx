@@ -65,6 +65,10 @@ const CatForm = ({ cat = defaultCat }) => {
         setNewImages(files);
     }
 
+    const handleImageClear = () => {
+        setNewImages([]);
+    }
+
     const handleVideoChange = (event) => {
         const { value } = event.target;
         setNewCat({ ...newCat, [videos]: value.split(',')});
@@ -218,6 +222,7 @@ const CatForm = ({ cat = defaultCat }) => {
                         Images:
                         <br />
                         <input name='images' type='file' accept='image/*' multiple onChange={handleImageSelect}/>
+                        <button type='button' onClick={handleImageClear}>Clear</button>
                     </label>
                 </div>
 
