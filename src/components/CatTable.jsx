@@ -30,8 +30,8 @@ const CatTable = ({ cats }) => {
             <th onClick={() => changeSort('id')}>ID</th>
             <th onClick={() => changeSort('name')}>Name/Collar</th>
             <th onClick={() => changeSort('date')}>Birthdate</th>
-            <th onClick={() => changeSort('mother')}>Mother</th>
-            <th onClick={() => changeSort('father')}>Father</th>
+            {cats[0].mother && <th onClick={() => changeSort('mother')}>Mother</th>}
+            {cats[0].father && <th onClick={() => changeSort('father')}>Father</th>}
             <th onClick={() => changeSort('status')}>Status</th>
           </tr>
         </thead>
