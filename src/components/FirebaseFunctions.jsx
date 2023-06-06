@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import { ref, getStorage, getDownloadURL, listAll, deleteObject, uploadBytes } from 'firebase/storage';
 import { auth } from '../firebase';
 import { db } from '../firebase';
+import { getCatID } from './Functions';
 
 const storage = getStorage();
 
@@ -29,7 +30,7 @@ export async function QueryCats(table, predicate = []) {
 
 export async function InsertCat(table, cat) {
     const { name, collar, colour, sex, adj, date, cattery, location, mother, father } = cat;
-    const id = GetCatID(name, date);
+    const id = getCatID(cat);
 
     const docRef = doc(db, table, id);
 
@@ -76,12 +77,6 @@ export async function DeleteCat(table, cat) {
     window.location.reload(false);
 }
 
-export function GetCatID(name, date) {
-    const id = `${name}${date ? `.${date}` : ``}`;
-    
-    return id;
-}
-
 export async function GetImage(filepath) {
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/${filepath}`));
 
@@ -102,6 +97,7 @@ export async function GetAllImages(filepath) {
 }
 
 export async function UploadImages(filepath, images) {
+    console.log(filepath);
     Array.from(images).map((image) => {
         const imageRef = ref(storage, `${filepath}/${image.name}`);
         uploadBytes(imageRef, image);
