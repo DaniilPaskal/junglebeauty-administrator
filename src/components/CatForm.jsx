@@ -79,7 +79,16 @@ const CatForm = ({ cat = defaultCat }) => {
         if (newImages.length > 0) {
             UploadImages(getCatFilepath(newCat), newImages);
         }
-        alert('Cat added');
+        alert(`Cat added with the following attributes:\n
+            Name: ${newCat.name}\n
+            Date: ${newCat.date}\n
+            Sex: ${newCat.sex}\n
+            Colour: ${newCat.colour}\n
+            Descriptor: ${newCat.adj}\n
+            Mother: ${newCat.mother}\n
+            Father: ${newCat.father}\n
+            Status: ${newCat.status}\n
+            `);
     }
 
     const handleUpdate = async () => {
