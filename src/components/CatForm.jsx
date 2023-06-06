@@ -17,12 +17,13 @@ const defaultCat = {
     mother: '',
     cattery: '',
     location: '',
+    show: true,
     videos: []
 }
 
 const CatForm = ({ cat = defaultCat }) => {
     const [newCat, setNewCat] = useState(cat);
-    const { name, date, sex, adj, colour, status, father, mother, cattery, location, videos = [] } = newCat;
+    const { name, date, sex, adj, colour, status, father, mother, cattery, location, videos = [], show } = newCat;
     const [images, setImages] = useState([]);
     const [newImages, setNewImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
@@ -256,6 +257,15 @@ const CatForm = ({ cat = defaultCat }) => {
             <div className='carousel-container'>
                 {cat != defaultCat && <ImageCarousel images={[...images, newImages]} />}
             </div>
+
+            <label className='form-label'>
+                Show:
+                <br />
+                <select name='show' defaultValue={show} onChange={handleChange}>
+                    <option value={true}>True</option>
+                    <option value={false}>False</option>
+                </select>
+            </label>
 
             <div className='buttons-container'>
                 {cat == defaultCat
