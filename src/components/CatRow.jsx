@@ -16,6 +16,7 @@ const CatRow = ({ cat }) => {
                 <td>{cat.date || `N/A`}</td>
                 {cat.mother && <td>{cat.mother}</td>}
                 {cat.father && <td>{cat.father}</td>}
+                {cat.mother || <td>{cat.sex}</td>}
                 <td>{cat.status || `N/A`}</td>
             </tr>
 

@@ -34,6 +34,7 @@ const CatTable = ({ cats }) => {
             <th onClick={() => changeSort('date')}>Birthdate</th>
             {cats[0].mother && <th onClick={() => changeSort('mother')}>Mother</th>}
             {cats[0].father && <th onClick={() => changeSort('father')}>Father</th>}
+            {cats[0].mother || <th onClick={() => changeSort('sex')}>Sex</th>}
             <th onClick={() => changeSort('status')}>Status</th>
           </tr>
         </thead>
