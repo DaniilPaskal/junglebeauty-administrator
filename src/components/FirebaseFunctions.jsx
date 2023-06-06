@@ -36,9 +36,11 @@ export async function InsertCat(table, cat) {
     await setDoc(docRef, {});
 
     Object.keys(cat).map(async (key) => {
-        await updateDoc(docRef, {
-            [key]: cat[key]
-        })
+        if (cat[key].length > 0) {
+            await updateDoc(docRef, {
+                [key]: cat[key]
+            })
+        }
     });
 }
 
@@ -47,9 +49,11 @@ export async function UpdateCat(table, cat) {
     const docRef = doc(db, table, id);
 
     Object.keys(cat).map(async (key) => {
-        await updateDoc(docRef, {
-            [key]: cat[key]
-        })
+        if (cat[key].length > 0) {
+            await updateDoc(docRef, {
+                [key]: cat[key]
+            })
+        } 
     });
 }
 
