@@ -7,6 +7,8 @@ const CatTable = ({ cats }) => {
   const [sort, setSort] = useState('date');
   const [order, setOrder] = useState('des');
 
+  cats.sort((a,b) => a[sort] > b[sort] ? -1 : 1);
+
   const changeSort = (category) => {
     cats.sort((a,b) => a[category] > b[category] ? 1 : -1);
 
