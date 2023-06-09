@@ -70,11 +70,6 @@ const CatForm = ({ cat = defaultCat }) => {
         setNewImages([]);
     }
 
-    const handleVideoChange = (event) => {
-        const { value } = event.target;
-        setNewCat({ ...newCat, [videos]: value.split(',')});
-    }
-
     const handleAdd = async () => {
         InsertCat(`${type}s`, newCat);
         if (newImages.length > 0) {
@@ -107,6 +102,13 @@ const CatForm = ({ cat = defaultCat }) => {
     const handleDelete = async () => {
         DeleteCat(`${type}s`, cat);
     }
+
+    /*
+    const handleVideoChange = (event) => {
+        const { value } = event.target;
+        setNewCat({ ...newCat, [videos]: value.split(',')});
+    }
+    */
 
     return (
         <div className='form-container'>
@@ -241,7 +243,7 @@ const CatForm = ({ cat = defaultCat }) => {
                     <label className='form-label'>
                         Videos:
                         <br />
-                        <textarea name='video' type='text' defaultValue={videos} onChange={handleVideoChange} />
+                        <input name='video' type='text' defaultValue={videos} onChange={handleChange} />
                         {/*
                         <table>
                             {videos.map((video) => {
