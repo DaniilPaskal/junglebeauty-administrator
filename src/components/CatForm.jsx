@@ -23,7 +23,7 @@ const defaultCat = {
 
 const CatForm = ({ cat = defaultCat }) => {
     const [newCat, setNewCat] = useState(cat);
-    const { name, date, sex, adj, colour, status, father, mother, cattery, location, videos = [], show } = newCat;
+    const { name, date, sex, adj, colour, status, father, mother, cattery, location, video, show } = newCat;
     const [images, setImages] = useState([]);
     const [newImages, setNewImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
@@ -241,9 +241,9 @@ const CatForm = ({ cat = defaultCat }) => {
 
                 <div>
                     <label className='form-label'>
-                        Videos:
+                        Video:
                         <br />
-                        <input name='video' type='text' defaultValue={videos} onChange={handleChange} />
+                        <input name='video' type='text' defaultValue={video} onChange={handleChange} />
                         {/*
                         <table>
                             {videos.map((video) => {
