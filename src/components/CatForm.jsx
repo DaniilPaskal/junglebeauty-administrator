@@ -163,6 +163,7 @@ const CatForm = ({ cat = defaultCat }) => {
                                 <option value='retired'>Retired</option>
                             </>
                             }
+                            <option value='no'>Null</option>
                         </select>
                     </label>
                     <br />
