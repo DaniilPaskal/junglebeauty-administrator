@@ -100,7 +100,8 @@ const CatForm = ({ cat = defaultCat }) => {
         if (newImages.length > 0) {
             UploadImages(getCatFilepath(newCat), newImages);
         }
-        window.location.reload(false);
+        alert('Cat updated. Please refresh page to see changes.');
+        //window.location.reload(false);
     }
 
     const handleDelete = async () => {
