@@ -19,6 +19,10 @@ const TextForm = ({ text }) => {
         
     }
 
+    const handleDelete = async () => {
+        
+    }
+
     return (
         <div className='form-container'>
             <form>
@@ -26,6 +30,7 @@ const TextForm = ({ text }) => {
 
                 <div className='buttons-container'>
                     <button type='button' onClick={handleUpdate}>Update item</button>
+                    <button type='button' onClick={handleDelete}>Delete item</button>
                 </div>
             </form>
         </div>
