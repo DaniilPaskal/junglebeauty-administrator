@@ -18,22 +18,25 @@ const News = () => {
   console.log(news);
 
   return (
-    <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Posted</th>
-            <th>Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          {news.map((newsItem) => {
-            return (
-              <TextRow text={newsItem} />
-            );
-          })}
-        </tbody>
-      </Table>
+    <>
+      <button type='button' onClick={handleAdd}>Add news item</button>
+      <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Posted</th>
+              <th>Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            {news.map((newsItem) => {
+              return (
+                <TextRow text={newsItem} />
+              );
+            })}
+          </tbody>
+        </Table>
+      </>
   );
 }
 
