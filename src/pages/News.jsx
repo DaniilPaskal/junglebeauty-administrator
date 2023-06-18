@@ -2,9 +2,13 @@ import { Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { GetList } from "../components/FirebaseFunctions";
 import TextRow from "../components/TextRow";
+import TextForm from "../components/TextForm";
 
 const News = () => {
   const [news, setNews] = useState([]);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const getNews = async () => {
     const news = await GetList('News-List.json');
@@ -19,7 +23,7 @@ const News = () => {
 
   return (
     <>
-      <button type='button' onClick={handleAdd}>Add news item</button>
+      <button type='button' onClick={handleShow}>Add news item</button>
       <Table striped bordered hover>
           <thead>
             <tr>
@@ -36,6 +40,13 @@ const News = () => {
             })}
           </tbody>
         </Table>
+
+        <Modal show={show} onHide={handleClose} size='lg'>
+            <Modal.Header closeButton/>
+            <Modal.Body>
+                <TextForm />
+            </Modal.Body>
+        </Modal>
       </>
   );
 }
