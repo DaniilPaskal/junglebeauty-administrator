@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import { Accordion, Card, useAccordionButton } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 import './../App.css';
 
 const AccordionMenu = ({ items }) => {
