@@ -1,5 +1,3 @@
-import { useState, useEffect, useContext } from "react";
-import { QueryCats } from "../components/FirebaseFunctions";
 import { useCats } from "../contexts/CatsContext";
 import CatTable from "../components/CatTable";
 
