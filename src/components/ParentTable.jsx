@@ -3,21 +3,21 @@ import { Table } from 'react-bootstrap';
 import CatRow from './CatRow';
 import './../App.css';
 
-const ParentTable = ({ cats }) => {
+const ParentTable = ({ parents }) => {
   const [sort, setSort] = useState('date');
   const [order, setOrder] = useState('des');
 
-  cats.sort((a,b) => a[sort] > b[sort] ? -1 : 1);
+  parents.sort((a,b) => a[sort] > b[sort] ? -1 : 1);
 
   const changeSort = (category) => {
-    cats.sort((a,b) => a[category] > b[category] ? 1 : -1);
+    parents.sort((a,b) => a[category] > b[category] ? 1 : -1);
 
     if (category === sort) {
       if (order === 'des') {
         setOrder('asc');
       } else {
         setOrder('des');
-        cats.reverse();
+        parents.reverse();
       }
     } else {
       setSort(category);
@@ -36,7 +36,7 @@ const ParentTable = ({ cats }) => {
             </tr>
         </thead>
         <tbody>
-            {cats.map((cat) => {
+            {parents.map((cat) => {
             return (
                 <CatRow cat={cat} key={cat.id} />
             );
