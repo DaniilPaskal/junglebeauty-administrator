@@ -1,5 +1,6 @@
 import { useCats } from "../contexts/CatsContext";
-import CatTable from "../components/CatTable";
+import ParentTable from "../components/ParentTable";
+import KittenTable from "../components/KittenTable";
 
 const ViewCats = () => {
     const cats = useCats();
@@ -7,10 +8,10 @@ const ViewCats = () => {
     return (
         <>
             <h2>Parents:</h2>
-            <CatTable cats={cats.parents} />
+            <ParentTable parents={cats.parents} />
 
             <h2>Kittens:</h2>
-            <CatTable cats={cats.kittens} />
+            <KittenTable kittens={cats.kittens} parents={cats.parents} />
         </>
     );
 }
