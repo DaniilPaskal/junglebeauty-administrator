@@ -1,3 +1,7 @@
+export function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 export function getCatID(cat) {
     const { name, date } = cat;
     const id = `${name}${date ? `.${date}` : ``}`;
