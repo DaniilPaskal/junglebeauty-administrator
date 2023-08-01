@@ -15,8 +15,8 @@ export function getCatFilepath(cat) {
   const idValues = id.split('.');
   const name = idValues[0];
   const date = idValues[1];
-  const type = (mother ? `Kitten` : `${sex == 'male' ? `King` : `Queen`}`);
-  const filepath = `${type}s/${type == 'Kitten' && `${date}/`}${name}/`;
+  const type = (mother ? `Kitten` : `${sex === 'male' ? `King` : `Queen`}`);
+  const filepath = `${type}s/${type === 'Kitten' && `${date}/`}${name}/`;
 
   return filepath;
 }
@@ -25,10 +25,10 @@ export function getCatDescription(cat) {
   const { name, type, colour, sex, adj, date, cattery, location } = cat;
   var description;
 
-  if (type == 'kitten') {
+  if (type === 'kitten') {
     description = convertDate(date);
   } else {
-    if (sex == 'male') {
+    if (sex === 'male') {
       description = `${colour} ${adj} Bengal`;
     } else {
       description = `${cattery} ${name} ${convertDate(date)}${location ? `, ${location}` : ``}`;
