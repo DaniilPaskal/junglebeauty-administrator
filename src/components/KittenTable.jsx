@@ -1,6 +1,8 @@
-import { useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { Table, Accordion, Button } from 'react-bootstrap';
+import { capitalize } from './Functions';
 import CatRow from './CatRow';
+import Checkbox from './Checkbox';
 import './../App.css';
 
 const KittenTable = ({ kittens, parents }) => {
