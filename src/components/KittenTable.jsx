@@ -16,7 +16,7 @@ const KittenTable = ({ kittens, parents }) => {
   kittens.sort((a,b) => a[sort] > b[sort] ? -1 : 1);
 
   useEffect(() => {
-    setFilters({colour: colours, father: parents.filter((cat) => cat.sex === 'male').map((cat) => {return cat.name}), mother: parents.filter((cat) => cat.sex === 'female').map((cat) => {return cat.name}), status: ['available'], sex: sexes});
+    setFilters({colour: colours, father: parents.filter((cat) => cat.sex === 'male').map((cat) => {return cat.name}), mother: parents.filter((cat) => cat.sex === 'female').map((cat) => {return cat.name}), status: statuses, sex: sexes});
   }, [kittens])
 
   const handleChange = (event) => {
