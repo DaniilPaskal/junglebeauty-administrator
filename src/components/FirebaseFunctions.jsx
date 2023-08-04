@@ -13,7 +13,7 @@ export async function QueryCats(table, predicate = []) {
     const cats = [];
     var q;
 
-    if (predicate.length == 0) {
+    if (predicate.length === 0) {
         q = query(collection(db, table));
     } else {
         q = query(collection(db, table), where(...predicate));
@@ -29,7 +29,6 @@ export async function QueryCats(table, predicate = []) {
 }
 
 export async function InsertCat(table, cat) {
-    const { name, collar, colour, sex, adj, date, cattery, location, mother, father } = cat;
     const id = getCatID(cat);
 
     const docRef = doc(db, table, id);
@@ -59,13 +58,13 @@ export async function UpdateCat(table, cat) {
 }
 
 export async function UpdateChildren(oldName, newName, parentSex) {
-    const kittens = QueryCats('kittens', [parentSex == 'male' ? 'father' : 'mother', '==', oldName]);
+    const kittens = QueryCats('kittens', [parentSex === 'male' ? 'father' : 'mother', '==', oldName]);
         
     (await kittens).map(async (kitten) => {
         const kittenDocRef = doc(db, 'kittens', kitten.id);
         
         await updateDoc(kittenDocRef, {
-            [parentSex == 'male' ? 'father' : 'mother']: newName
+            [parentSex === 'male' ? 'father' : 'mother']: newName
         })
     })
 }
