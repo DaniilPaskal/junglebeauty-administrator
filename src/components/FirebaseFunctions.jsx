@@ -110,8 +110,11 @@ export async function DeleteImage(filepath) {
 
 export async function GetList(listName) {
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`));
+    console.log(url)
     const list = await fetch(url);
+    console.log(list)
     const data = await list.json();
+    console.log(data)
 
     return data;
 }
