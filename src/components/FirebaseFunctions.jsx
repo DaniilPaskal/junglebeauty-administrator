@@ -94,7 +94,6 @@ export async function GetAllImages(filepath) {
 }
 
 export async function UploadImages(filepath, images) {
-    console.log(filepath);
     Array.from(images).map((image) => {
         const imageRef = ref(storage, `${filepath}/${image.name}`);
         uploadBytes(imageRef, image);
