@@ -27,15 +27,18 @@ const News = () => {
       <Table striped bordered hover>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Posted</th>
               <th>Title</th>
+              <th>Body</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th>King</th>
+              <th>Queen</th>
             </tr>
           </thead>
           <tbody>
             {news.map((newsItem) => {
               return (
-                <TextRow text={newsItem} />
+                <TextRow item={newsItem} />
               );
             })}
           </tbody>
