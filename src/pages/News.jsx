@@ -12,7 +12,7 @@ const News = () => {
 
   const getNews = async () => {
     const news = await GetList('News-List.json');
-    setNews(news);
+    setNews(news.NewsList);
   }
 
   useEffect(() => {
