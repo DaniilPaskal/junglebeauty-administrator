@@ -2,9 +2,18 @@ import { useState } from 'react';
 import { useCats } from '../contexts/CatsContext';
 import './../App.css';
 
-const NewsForm = ({ item }) => {
+const defaultItem = {
+    title: '',
+    body: '',
+    date: '',
+    type: 'litter',
+    king: '',
+    queen: ''
+}
+
+const NewsForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(text);
-    var { title, body, date, type, king, queen } = item;
+    const { title, body, date, type, king, queen } = newItem;
     const kings = cats.parents.filter((cat) => cat.sex == 'male');
     const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
