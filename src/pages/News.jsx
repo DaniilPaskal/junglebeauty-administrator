@@ -38,7 +38,7 @@ const News = () => {
           <tbody>
             {news.map((newsItem) => {
               return (
-                <TextRow item={newsItem} />
+                <TextRow item={newsItem} key={newsItem.id} />
               );
             })}
           </tbody>
