@@ -9,8 +9,6 @@ const TextRow = ({ item }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(item)
-
     return (
         <>
             <tr className='cat-row' onClick={handleShow}>
