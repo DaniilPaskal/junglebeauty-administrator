@@ -88,8 +88,15 @@ const NewsForm = ({ item = defaultItem }) => {
                 </label>
 
                 <div className='buttons-container'>
-                    <button type='button' onClick={handleUpdate}>Update item</button>
-                    <button type='button' onClick={handleDelete}>Delete item</button>
+                    {item == defaultItem
+                        ?
+                            <button type='button' onClick={handleAdd}>Add item</button>
+                        :
+                        <>
+                            <button type='button' onClick={handleUpdate}>Update item</button>
+                            <button type='button' onClick={handleDelete}>Delete item</button>
+                        </>
+                }
                 </div>
             </form>
         </div>
