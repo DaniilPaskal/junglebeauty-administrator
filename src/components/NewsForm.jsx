@@ -12,8 +12,9 @@ const defaultItem = {
 }
 
 const NewsForm = ({ item = defaultItem }) => {
-    const [newItem, setNewItem] = useState(text);
+    const [newItem, setNewItem] = useState(item);
     const { title, body, date, type, king, queen } = newItem;
+    const cats = useCats();
     const kings = cats.parents.filter((cat) => cat.sex == 'male');
     const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
@@ -54,7 +55,7 @@ const NewsForm = ({ item = defaultItem }) => {
                     <br />
                     <input name='date' type='date' defaultValue={date} onChange={handleChange} />
                 </label>
-                
+                <br />
                 <label className='form-label'>
                     Type:
                     <br />
@@ -76,7 +77,7 @@ const NewsForm = ({ item = defaultItem }) => {
                 </label>
                 <br />
                 <label className='form-label'>
-                    Queen: {mother}
+                    Queen: {queen}
                     <br />
                     <select name='queen' defaultValue={queen} onChange={handleChange}>
                         {queens.map((cat) => {
