@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import TextForm from './TextForm';
+import NewsForm from './NewsForm';
 import './../App.css';
 
 const TextRow = ({ item }) => {
@@ -20,12 +21,12 @@ const TextRow = ({ item }) => {
                 })}
             </tr>
 
-            {/* <Modal show={show} onHide={handleClose} size='lg'>
+            <Modal show={show} onHide={handleClose} size='lg'>
                 <Modal.Header closeButton/>
                 <Modal.Body>
-                    <TextForm text={text} />
+                    <NewsForm item={item} />
                 </Modal.Body>
-            </Modal> */}
+            </Modal>
         </>
     );
 };
