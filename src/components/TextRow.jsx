@@ -14,7 +14,7 @@ const TextRow = ({ item }) => {
             <tr className='cat-row' onClick={handleShow}>
                 {Object.keys(item).map((key) => {
                     return (
-                        <td>{item[key]}</td>
+                        <td key={key}>{item[key]}</td>
                     );
                 })}
             </tr>
