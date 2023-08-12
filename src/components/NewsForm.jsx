@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useCats } from '../contexts/CatsContext';
+import { useNews } from '../contexts/NewsContext';
 import './../App.css';
 
 const defaultItem = {
+    id: 0,
     title: '',
     body: '',
     date: '',
@@ -15,6 +17,7 @@ const NewsForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(item);
     const { title, body, date, type, king, queen } = newItem;
     const cats = useCats();
+    const news = useNews();
     const kings = cats.parents.filter((cat) => cat.sex == 'male');
     const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
@@ -24,15 +27,18 @@ const NewsForm = ({ item = defaultItem }) => {
     }
 
     const handleAdd = async () => {
-        
+        newItem.id = news.length + 1;
+        news.push(newItem);
     }
 
     const handleUpdate = async () => {
-        
+        const index = news.map((item) => item.id).indexOf(item.id);
+        news[index] = newItem;
     }
 
     const handleDelete = async () => {
-        
+        const index = news.map((item) => item.id).indexOf(item.id);
+        news.splice(index, 1);
     }
 
     return (
