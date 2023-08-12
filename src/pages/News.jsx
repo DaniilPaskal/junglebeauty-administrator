@@ -1,25 +1,14 @@
 import { Table, Modal } from "react-bootstrap";
-import { useState, useEffect } from "react";
-import { GetList } from "../components/FirebaseFunctions";
+import { useState } from "react";
+import { useNews } from "../contexts/NewsContext";
 import TextRow from "../components/TextRow";
 import TextForm from "../components/TextForm";
 
 const News = () => {
-  const [news, setNews] = useState([]);
+  const news = useNews();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const getNews = async () => {
-    const news = await GetList('News-List.json');
-    setNews(news.NewsList);
-  }
-
-  useEffect(() => {
-    getNews();
-  }, []);
-  
-  console.log(news);
 
   return (
     <>
