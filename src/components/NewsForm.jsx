@@ -18,8 +18,8 @@ const NewsForm = ({ item = defaultItem }) => {
     const { title, body, date, type, king, queen } = newItem;
     const cats = useCats();
     const news = useNews();
-    const kings = cats.parents.filter((cat) => cat.sex == 'male');
-    const queens = cats.parents.filter((cat) => cat.sex == 'female');
+    const kings = cats.parents.filter((cat) => cat.sex === 'male');
+    const queens = cats.parents.filter((cat) => cat.sex === 'female');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -95,7 +95,7 @@ const NewsForm = ({ item = defaultItem }) => {
                 </label>
 
                 <div className='buttons-container'>
-                    {item == defaultItem
+                    {item === defaultItem
                         ?
                             <button type='button' onClick={handleAdd}>Add item</button>
                         :
