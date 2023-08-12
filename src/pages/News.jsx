@@ -2,7 +2,7 @@ import { Table, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { useNews } from "../contexts/NewsContext";
 import TextRow from "../components/TextRow";
-import TextForm from "../components/TextForm";
+import NewsForm from "../components/NewsForm";
 
 const News = () => {
   const news = useNews();
@@ -36,7 +36,7 @@ const News = () => {
         <Modal show={show} onHide={handleClose} size='lg'>
             <Modal.Header closeButton/>
             <Modal.Body>
-                <TextForm />
+                <NewsForm />
             </Modal.Body>
         </Modal>
       </>
