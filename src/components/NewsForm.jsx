@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCats } from '../contexts/CatsContext';
 import { useNews } from '../contexts/NewsContext';
+import { updateList } from './FirebaseFunctions';
 import './../App.css';
 
 const defaultItem = {
@@ -26,19 +27,26 @@ const NewsForm = ({ item = defaultItem }) => {
         setNewItem({ ...newItem, [name]: value });
     }
 
-    const handleAdd = async () => {
+    const handleAdd = () => {
         newItem.id = news.length + 1;
         news.push(newItem);
+        submitUpdate();
     }
 
-    const handleUpdate = async () => {
+    const handleUpdate = () => {
         const index = news.map((item) => item.id).indexOf(item.id);
         news[index] = newItem;
+        submitUpdate();
     }
 
-    const handleDelete = async () => {
+    const handleDelete = () => {
         const index = news.map((item) => item.id).indexOf(item.id);
         news.splice(index, 1);
+        submitUpdate();
+    }
+
+    const submitUpdate = async () => {
+        updateList(news, 'News-List.json');
     }
 
     return (
