@@ -113,6 +113,15 @@ export async function GetList(listName) {
     return list;
 }
 
+export async function updateList(list) {
+    const jsonList = JSON.stringify(list);
+    const blob = new Blob([jsonList], {type: 'application/json'});
+    const storageRef = ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`);
+
+    uploadBytes(storageRef, blob);
+    window.location.reload(false);
+}
+
 export async function GetText(textName) {
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Texts/${textName}`));
     const list = await fetch(url);
