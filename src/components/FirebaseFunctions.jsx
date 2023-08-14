@@ -113,7 +113,9 @@ export async function GetList(listName) {
     return list;
 }
 
-export async function updateList(list) {
+export async function updateList(list, listName) {
+    console.log(list)
+    console.log(listName)
     const jsonList = JSON.stringify(list);
     const blob = new Blob([jsonList], {type: 'application/json'});
     const storageRef = ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`);
