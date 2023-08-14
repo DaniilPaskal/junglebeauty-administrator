@@ -10,7 +10,7 @@ export function NewsProvider({ children }) {
     const getNews = async () => {
         const news = await GetList('News-List.json');
         
-        setNews(news.NewsList);
+        setNews(news);
         setLoading(false);
     }
     
