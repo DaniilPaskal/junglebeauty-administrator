@@ -26,11 +26,13 @@ const News = () => {
             </tr>
           </thead>
           <tbody>
-            {news.map((newsItem) => {
-              return (
-                <TextRow item={newsItem} key={newsItem.id} />
-              );
-            })}
+            {news &&
+              news.map((newsItem) => {
+                return (
+                  <TextRow item={newsItem} key={newsItem.id} />
+                );
+              })
+            }
           </tbody>
         </Table>
 
