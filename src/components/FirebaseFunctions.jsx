@@ -121,7 +121,6 @@ export async function updateList(list, listName) {
     const storageRef = ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`);
 
     uploadBytes(storageRef, blob);
-    window.location.reload(false);
 }
 
 export async function GetText(textName) {
