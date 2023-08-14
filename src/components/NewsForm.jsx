@@ -47,6 +47,7 @@ const NewsForm = ({ item = defaultItem }) => {
 
     const submitUpdate = async () => {
         updateList(news, 'News-List.json');
+        alert("Update submitted. Please reload page to see changes.")
     }
 
     return (
