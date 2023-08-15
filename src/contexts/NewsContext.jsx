@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { GetList } from "../components/FirebaseFunctions";
+import { getList } from "../components/FirebaseFunctions";
 
 const NewsContext = React.createContext();
 
@@ -8,7 +8,7 @@ export function NewsProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     const getNews = async () => {
-        const news = await GetList('News-List.json');
+        const news = await getList('News-List.json');
         
         setNews(news);
         setLoading(false);

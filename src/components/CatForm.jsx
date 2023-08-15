@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { getCatFilepath } from './Functions';
 import { useCats } from '../contexts/CatsContext';
-import { QueryCats, InsertCat, UpdateCat, UpdateChildren, DeleteCat, GetAllImages, UploadImages } from './FirebaseFunctions';
+import { queryCats, insertCat, updateCat, updateChildren, deleteCat, getAllImages, uploadImages } from './FirebaseFunctions';
 import ImageCarousel from './ImageCarousel';
 import './../App.css';
 
@@ -32,7 +32,7 @@ const CatForm = ({ cat = defaultCat }) => {
     const queens = cats.parents.filter((cat) => cat.sex == 'female');
 
     const getData = async () => {
-        const images = await GetAllImages(getCatFilepath(cat));
+        const images = await getAllImages(getCatFilepath(cat));
         setImages(images);
     }
 
@@ -71,9 +71,9 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleAdd = async () => {
-        InsertCat(`${type}s`, newCat);
+        insertCat(`${type}s`, newCat);
         if (newImages.length > 0) {
-            UploadImages(getCatFilepath(newCat), newImages);
+            uploadImages(getCatFilepath(newCat), newImages);
         }
         alert(`Cat added with the following attributes:\n
             Name: ${newCat.name}\n
@@ -88,19 +88,19 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleUpdate = async () => {
-        UpdateCat(`${type}s`, newCat);
+        updateCat(`${type}s`, newCat);
         if (type == 'parent') {
-            UpdateChildren(cat.name, newCat.name, cat.sex);
+            updateChildren(cat.name, newCat.name, cat.sex);
         }
         if (newImages.length > 0) {
-            UploadImages(getCatFilepath(newCat), newImages);
+            uploadImages(getCatFilepath(newCat), newImages);
         }
         alert('Cat updated. Please refresh page to see changes.');
         //window.location.reload(false);
     }
 
     const handleDelete = async () => {
-        DeleteCat(`${type}s`, cat);
+        deleteCat(`${type}s`, cat);
     }
 
     /*

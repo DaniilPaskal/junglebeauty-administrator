@@ -7,7 +7,7 @@ import { getCatID } from './Functions';
 
 const storage = getStorage();
 
-export async function QueryCats(table, predicate = []) {
+export async function queryCats(table, predicate = []) {
     const cats = [];
     var q;
 
@@ -26,7 +26,7 @@ export async function QueryCats(table, predicate = []) {
     return cats;
 }
 
-export async function InsertCat(table, cat) {
+export async function insertCat(table, cat) {
     const id = getCatID(cat);
 
     const docRef = doc(db, table, id);
@@ -42,7 +42,7 @@ export async function InsertCat(table, cat) {
     });
 }
 
-export async function UpdateCat(table, cat) {
+export async function updateCat(table, cat) {
     const id = cat.id;
     const docRef = doc(db, table, id);
 
@@ -55,8 +55,8 @@ export async function UpdateCat(table, cat) {
     });
 }
 
-export async function UpdateChildren(oldName, newName, parentSex) {
-    const kittens = QueryCats('kittens', [parentSex === 'male' ? 'father' : 'mother', '==', oldName]);
+export async function updateChildren(oldName, newName, parentSex) {
+    const kittens = queryCats('kittens', [parentSex === 'male' ? 'father' : 'mother', '==', oldName]);
         
     (await kittens).map(async (kitten) => {
         const kittenDocRef = doc(db, 'kittens', kitten.id);
@@ -67,20 +67,20 @@ export async function UpdateChildren(oldName, newName, parentSex) {
     })
 }
 
-export async function DeleteCat(table, cat) {
+export async function deleteCat(table, cat) {
     const id = cat.id;
 
     await deleteDoc(doc(db, table, id));
     window.location.reload(false);
 }
 
-export async function GetImage(filepath) {
+export async function getImage(filepath) {
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/${filepath}`));
 
     return url;
 }
 
-export async function GetAllImages(filepath) {
+export async function getAllImages(filepath) {
     const images = [];
     const storageRef = ref(storage, filepath);
     
@@ -93,18 +93,18 @@ export async function GetAllImages(filepath) {
     return images;
 }
 
-export async function UploadImages(filepath, images) {
+export async function uploadImages(filepath, images) {
     Array.from(images).map((image) => {
         const imageRef = ref(storage, `${filepath}/${image.name}`);
         uploadBytes(imageRef, image);
     })
 }
 
-export async function DeleteImage(filepath) {
+export async function deleteImage(filepath) {
     deleteObject(ref(storage, filepath));
 }
 
-export async function GetList(listName) {
+export async function getList(listName) {
     const list = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Lists/${listName}`))
         .then(url => fetch(url))
         .then(result => result.json())
@@ -121,7 +121,7 @@ export async function updateList(list, listName) {
     uploadBytes(storageRef, blob);
 }
 
-export async function GetText(textName) {
+export async function getText(textName) {
     const url = getDownloadURL(ref(storage, `gs://junglebeauty-fb9a7.appspot.com/Texts/${textName}`));
     const list = await fetch(url);
     const data = await list.json();

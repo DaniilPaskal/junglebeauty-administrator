@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import { GetImage, DeleteImage } from './FirebaseFunctions';
+import { getImage, deleteImage } from './FirebaseFunctions';
 
 const CatImage = ({ filepath }) => {
     const [image, setImage] = useState();
@@ -9,7 +9,7 @@ const CatImage = ({ filepath }) => {
     const handleShow = () => setShow(true);
 
     const getImage = async () => {
-      const image = await GetImage(filepath);
+      const image = await getImage(filepath);
       setImage(image);
     }
   
@@ -19,7 +19,7 @@ const CatImage = ({ filepath }) => {
 
     const handleDelete = async () => {
       handleClose();
-      DeleteImage(filepath);
+      deleteImage(filepath);
     }
 
     return (
