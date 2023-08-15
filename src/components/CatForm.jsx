@@ -28,8 +28,8 @@ const CatForm = ({ cat = defaultCat }) => {
     const [newImages, setNewImages] = useState([]);
     const [type, setType] = useState(mother ? 'kitten' : 'parent');
     const cats = useCats();
-    const kings = cats.parents.filter((cat) => cat.sex == 'male');
-    const queens = cats.parents.filter((cat) => cat.sex == 'female');
+    const kings = cats.parents.filter((cat) => cat.sex === 'male');
+    const queens = cats.parents.filter((cat) => cat.sex === 'female');
 
     const getData = async () => {
         const images = await getAllImages(getCatFilepath(cat));
@@ -37,7 +37,7 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     useEffect(() => {
-        if (cat != defaultCat) {
+        if (cat !== defaultCat) {
             getData();
         }
     }, [])
@@ -89,7 +89,7 @@ const CatForm = ({ cat = defaultCat }) => {
 
     const handleUpdate = async () => {
         updateCat(`${type}s`, newCat);
-        if (type == 'parent') {
+        if (type === 'parent') {
             updateChildren(cat.name, newCat.name, cat.sex);
         }
         if (newImages.length > 0) {
@@ -113,7 +113,7 @@ const CatForm = ({ cat = defaultCat }) => {
     return (
         <div className='form-container'>
             <form>
-                {cat == defaultCat &&
+                {cat === defaultCat &&
                     <div>
                         <label className='form-label'>
                             Cat type:
@@ -152,7 +152,7 @@ const CatForm = ({ cat = defaultCat }) => {
                         Status:
                         <br />
                         <select name='status' defaultValue={status} onChange={handleChange}>
-                            {type == 'kitten'
+                            {type === 'kitten'
                             ?
                             <>
                                 <option value='available'>Available</option>
@@ -186,7 +186,7 @@ const CatForm = ({ cat = defaultCat }) => {
                 </div>
 
                 <div>
-                    {type == 'kitten'
+                    {type === 'kitten'
                     ?
                     <>
                         <label className='form-label'>
@@ -259,7 +259,7 @@ const CatForm = ({ cat = defaultCat }) => {
             </form>
 
             <div className='carousel-container'>
-                {cat != defaultCat && <ImageCarousel images={[...images, newImages]} />}
+                {cat !== defaultCat && <ImageCarousel images={[...images, newImages]} />}
             </div>
 
             <label className='form-label'>
@@ -272,7 +272,7 @@ const CatForm = ({ cat = defaultCat }) => {
             </label>
 
             <div className='buttons-container'>
-                {cat == defaultCat
+                {cat === defaultCat
                 ?
                     <button type='button' onClick={handleAdd}>Add cat</button>
                 :
