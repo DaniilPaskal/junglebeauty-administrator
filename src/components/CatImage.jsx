@@ -8,13 +8,13 @@ const CatImage = ({ filepath }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const getImage = async () => {
+    const downloadImage = async () => {
       const image = await getImage(filepath);
       setImage(image);
     }
   
     useEffect(() => {
-      getImage();
+      downloadImage();
     }, [])
 
     const handleDelete = async () => {
