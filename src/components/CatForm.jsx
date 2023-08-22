@@ -17,7 +17,7 @@ const defaultCat = {
     mother: '',
     cattery: '',
     location: '',
-    show: true,
+    show: 'true',
     videos: []
 }
 
@@ -266,8 +266,8 @@ const CatForm = ({ cat = defaultCat }) => {
                 Show:
                 <br />
                 <select name='show' defaultValue={show} onChange={handleChange}>
-                    <option value={true}>True</option>
-                    <option value={false}>False</option>
+                    <option value={'true'}>True</option>
+                    <option value={'false'}>False</option>
                 </select>
             </label>
 
