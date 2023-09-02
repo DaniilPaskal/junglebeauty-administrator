@@ -16,13 +16,11 @@ const News = () => {
       <Table striped bordered hover>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Body</th>
-              <th>Date</th>
-              <th>Type</th>
-              <th>King</th>
-              <th>Queen</th>
+              {Object.keys(news[0]).map((key) => {
+                return (
+                    <th key={key}>{key}</th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
