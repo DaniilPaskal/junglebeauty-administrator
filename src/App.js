@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import AddCats from './pages/AddCats';
 import ViewCats from './pages/ViewCats';
 import News from './pages/News';
+import Articles from './pages/Articles';
 import Accounts from './pages/Accounts';
 import Navigation from './components/Navigation';
 import './App.css';
@@ -43,6 +44,11 @@ function App() {
                 <Route path='news' element={
                   <PrivateRoute>
                     <News />
+                  </PrivateRoute>
+                } />
+                <Route path='articles' element={
+                  <PrivateRoute>
+                    <Articles />
                   </PrivateRoute>
                 } />
                 <Route path='accounts' element={
