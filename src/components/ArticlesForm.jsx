@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useCats } from '../contexts/CatsContext';
 import { useArticles } from '../contexts/ArticlesContext';
 import { updateList } from './FirebaseFunctions';
 import './../App.css';
@@ -13,11 +12,8 @@ const defaultItem = {
 
 const ArticlesForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(item);
-    const { title, body, date, type, king, queen } = newItem;
-    const cats = useCats();
+    const { title, body, date } = newItem;
     const articles = useArticles();
-    const kings = cats.parents.filter((cat) => cat.sex === 'male');
-    const queens = cats.parents.filter((cat) => cat.sex === 'female');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
