@@ -1,4 +1,5 @@
 import { useLists } from "../contexts/ListsContext";
+import ListTable from "../components/ListTable";
 import './../App.css';
 
 const Articles = () => {
