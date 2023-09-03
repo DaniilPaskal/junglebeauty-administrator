@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useCats } from '../contexts/CatsContext';
-import { useNews } from '../contexts/NewsContext';
+import { useLists } from '../contexts/ListsContext';
 import { updateList } from './FirebaseFunctions';
 import './../App.css';
 
@@ -17,8 +17,8 @@ const defaultItem = {
 const NewsForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(item);
     const { title, body, date, type, king, queen } = newItem;
+    const news = useLists().news;
     const cats = useCats();
-    const news = useNews();
     const kings = cats.parents.filter((cat) => cat.sex === 'male');
     const queens = cats.parents.filter((cat) => cat.sex === 'female');
 
