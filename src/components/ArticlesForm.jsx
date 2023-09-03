@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useArticles } from '../contexts/ArticlesContext';
+import { useLists } from '../contexts/ListsContext';
 import { updateList } from './FirebaseFunctions';
 import './../App.css';
 
@@ -13,7 +13,7 @@ const defaultItem = {
 const ArticlesForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(item);
     const { title, body, date } = newItem;
-    const articles = useArticles();
+    const articles = useLists().articles;
 
     const handleChange = (event) => {
         const { name, value } = event.target;
