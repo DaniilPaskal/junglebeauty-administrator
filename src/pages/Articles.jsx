@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLists } from "../contexts/ListsContext";
 import TextRow from "../components/TextRow";
 import ArticlesForm from "../components/ArticlesForm";
+import './../App.css';
 
 const Articles = () => {
   const articles = useLists().articles;
