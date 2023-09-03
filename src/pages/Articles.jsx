@@ -1,11 +1,11 @@
 import { Table, Modal } from "react-bootstrap";
 import { useState } from "react";
-import { useArticles } from "../contexts/ArticlesContext";
+import { useLists } from "../contexts/ListsContext";
 import TextRow from "../components/TextRow";
 import ArticlesForm from "../components/ArticlesForm";
 
 const Articles = () => {
-  const articles = useArticles();
+  const articles = useLists().articles;
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
