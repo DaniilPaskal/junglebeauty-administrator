@@ -16,6 +16,14 @@ const VideosForm = ({ item = defaultItem }) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
+
+        if (name === 'video-id') {
+            const index = value.indexOf('?');
+            if (index > -1) {
+                value = value.slice(index + 1);
+            }
+        }
+
         setNewItem({ ...newItem, [name]: value });
     }
 
@@ -54,7 +62,7 @@ const VideosForm = ({ item = defaultItem }) => {
                 <label className='form-label'>
                     Video ID:
                     <br />
-                    <input name='desc' type='text' defaultValue={body} onChange={handleChange} />
+                    <input name='video-id' type='text' defaultValue={body} onChange={handleChange} />
                 </label>
 
                 <div className='buttons-container'>
