@@ -2,7 +2,7 @@ import { useLists } from "../contexts/ListsContext";
 import ListTable from "../components/ListTable";
 import './../App.css';
 
-const News = () => {
+const Videos = () => {
   const videos = useLists().videos;
 
   return (
@@ -10,4 +10,4 @@ const News = () => {
   );
 }
 
-export default News;
+export default Videos;
