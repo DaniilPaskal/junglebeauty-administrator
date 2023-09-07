@@ -10,8 +10,9 @@ export function ListsProvider({ children }) {
     const getLists = async () => {
         const news = await getList('News-List.json');
         const articles = await getList('Articles-List.json');
+        const videos = await getList('Videos-List.json');
         
-        setLists({news, articles});
+        setLists({news, articles, videos});
         setLoading(false);
     }
     
