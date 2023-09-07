@@ -39,6 +39,7 @@ const ListTable = ({ list, type }) => {
                 <Modal.Body>
                     {type === 'news' && <NewsForm />}
                     {type === 'articles' && <ArticlesForm />}
+                    {type === 'videos' && <VideosForm />}
                 </Modal.Body>
             </Modal>
         </>
