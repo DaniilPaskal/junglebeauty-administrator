@@ -9,6 +9,7 @@ import AddCats from './pages/AddCats';
 import ViewCats from './pages/ViewCats';
 import News from './pages/News';
 import Articles from './pages/Articles';
+import Videos from './pages/Videos';
 import Accounts from './pages/Accounts';
 import Navigation from './components/Navigation';
 import './App.css';
@@ -46,6 +47,11 @@ function App() {
                 <Route path='articles' element={
                   <PrivateRoute>
                     <Articles />
+                  </PrivateRoute>
+                } />
+                <Route path='videos' element={
+                  <PrivateRoute>
+                    <Videos />
                   </PrivateRoute>
                 } />
                 <Route path='accounts' element={
