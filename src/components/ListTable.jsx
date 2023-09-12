@@ -28,7 +28,7 @@ const ListTable = ({ list, type }) => {
                     {list &&
                     list.map((listItem) => {
                         return (
-                        <TextRow item={listItem} key={listItem.id} />
+                        <TextRow item={listItem} type={type} key={listItem.id} />
                         );
                     })
                     }
@@ -36,7 +36,11 @@ const ListTable = ({ list, type }) => {
             </Table>
 
             <Modal show={show} onHide={handleClose} size='lg'>
-                <Modal.Header closeButton/>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <h2>Modify {type}</h2>
+                    </Modal.Title> 
+                </Modal.Header>
                 <Modal.Body>
                     {type === 'news' && <NewsForm />}
                     {type === 'articles' && <ArticlesForm />}
