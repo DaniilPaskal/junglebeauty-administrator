@@ -3,6 +3,7 @@ import { useState } from "react";
 import TextRow from "../components/TextRow";
 import NewsForm from "../components/NewsForm";
 import ArticlesForm from "./ArticlesForm";
+import VideosForm from "./VideosForm";
 import './../App.css';
 
 const ListTable = ({ list, type }) => {
