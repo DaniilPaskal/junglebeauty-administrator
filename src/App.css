@@ -125,6 +125,10 @@ a:hover{
 }
 
 .logo-link {
+  text-decoration: none;
+}
+
+.logo-brand {
   height: 100%;
   display: flex;
   text-decoration: none;
@@ -137,7 +141,7 @@ a:hover{
 
 .logo-text {
   font-size: x-large;
-  color: white;
+  color: var(--nav-white);
   font-style: italic;
   height: auto;
   line-height: normal;
@@ -147,7 +151,7 @@ a:hover{
 
 .nav-link {
   color: var(--nav-white) !important;
-  padding: 10px 15px;
+  padding: 10pt 15pt;
   cursor: pointer;
   text-decoration: none;
 }
@@ -156,17 +160,16 @@ a:hover{
   color: var(--link-active-green) !important;
 }
 
-.dropdown-links-container {
-  color: var(--nav-white);
+.dropdown-menu {
+  background-color: var(--nav-black);
   text-align: center;
+  padding-left: 5pt;
+  padding-right: 5pt;
 }
 
 .dropdown-link {
   color: var(--nav-white);
-}
-
-.dropdown-menu {
-  background-color: var(--nav-black) !important;
+  text-decoration: none;
 }
 
 /* Footer */
