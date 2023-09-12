@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import TextForm from './TextForm';
 import NewsForm from './NewsForm';
+import ArticlesForm from './ArticlesForm';
+import VideosForm from './VideosForm';
 import './../App.css';
 
-const TextRow = ({ item }) => {
+const TextRow = ({ item, type }) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -20,9 +22,15 @@ const TextRow = ({ item }) => {
             </tr>
 
             <Modal show={show} onHide={handleClose} size='lg'>
-                <Modal.Header closeButton/>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <h2>Modify {type}</h2>
+                    </Modal.Title> 
+                </Modal.Header>
                 <Modal.Body>
-                    <NewsForm item={item} />
+                    {type === 'news' && <NewsForm item={item} />}
+                    {type === 'articles' && <ArticlesForm item={item} />}
+                    {type === 'videos' && <VideosForm item={item} />}
                 </Modal.Body>
             </Modal>
         </>
