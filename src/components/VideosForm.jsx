@@ -47,7 +47,7 @@ const VideosForm = ({ item = defaultItem }) => {
 
     const submitUpdate = async () => {
         updateList(videos, 'Videos-List.json');
-        alert("Update submitted. Please reload page to see changes.")
+        alert("Update submitted. Please reload page to see changes.");
     }
 
     return (

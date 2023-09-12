@@ -40,7 +40,7 @@ const ArticlesForm = ({ item = defaultItem }) => {
 
     const submitUpdate = async () => {
         updateList(articles, 'Articles-List.json');
-        alert("Update submitted. Please reload page to see changes.")
+        alert("Update submitted. Please reload page to see changes.");
     }
 
     return (
