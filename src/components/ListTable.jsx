@@ -28,7 +28,7 @@ const ListTable = ({ list, type }) => {
                     {list &&
                     list.map((listItem) => {
                         return (
-                        <TextRow item={listItem} type={type} key={listItem.id} />
+                            <TextRow item={listItem} type={type} key={listItem.id} />
                         );
                     })
                     }
