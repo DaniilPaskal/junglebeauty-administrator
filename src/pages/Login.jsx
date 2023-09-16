@@ -25,24 +25,26 @@ const Login = () => {
     }
 
     return (
-        <div className='form-container'>
-            <form>
-                <label className='form-label'>
-                    Email:
+        <div className='page-background'>
+            <div className='form-container'>
+                <form>
+                    <label className='form-label'>
+                        Email:
+                        <br />
+                        <input name='email' type='email' onChange={handleChange} />
+                    </label>
                     <br />
-                    <input name='email' type='email' onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Password:
-                    <br />
-                    <input name='password' type='password' onChange={handleChange} />
-                </label>
+                    <label className='form-label'>
+                        Password:
+                        <br />
+                        <input name='password' type='password' onChange={handleChange} />
+                    </label>
 
-                <div className='buttons-container'>
-                    <button type='submit' onClick={handleLogin}>Log in</button>
-                </div>
-            </form>
+                    <div className='buttons-container'>
+                        <button type='submit' onClick={handleLogin}>Log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

@@ -6,7 +6,9 @@ const News = () => {
   const news = useLists().news;
 
   return (
-    <ListTable list={news} type='news' />
+    <div className='page-background'>
+      <ListTable list={news} type='news' />
+    </div>
   );
 }
 

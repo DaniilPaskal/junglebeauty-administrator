@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
-        <div className='page-content'>
+        <div className='page-background'>
             <ul>
                 <li>
                     <Link to='/add-cats'>Add cats</Link>

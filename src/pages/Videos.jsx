@@ -6,7 +6,9 @@ const Videos = () => {
   const videos = useLists().videos;
 
   return (
-    <ListTable list={videos} type='videos' />
+    <div className='page-background'>
+      <ListTable list={videos} type='videos' />
+    </div>
   );
 }
 
