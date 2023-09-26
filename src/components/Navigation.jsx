@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { handleLogout } from './FirebaseFunctions';
 import './../App.css';
@@ -37,9 +37,9 @@ const Navigation = () => {
 
                     {user &&
                         <Nav>
-                            <button onClick={handleLogout}>
+                            <Button className='form-button' onClick={handleLogout}>
                                 Log out
-                            </button>
+                            </Button>
                         </Nav>
                     }
                 </Navbar.Collapse>
