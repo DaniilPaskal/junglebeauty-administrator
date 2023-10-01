@@ -45,11 +45,11 @@
 }
 
 .paragraph-container > p {
-  text-align: left;
-  width: fit-content;
-  max-width: 80rem;
   margin: auto;
   margin-bottom: 15pt;
+  max-width: 80rem;
+  text-align: left;
+  width: fit-content;
 }
 
 .page-header {
@@ -66,15 +66,15 @@
 }
 
 .page-content {
-  min-height: 75%;
   max-height: auto;
+  min-height: 75%;
 }
 
 .contract-paragraph {
-  text-align: left;
   line-height: 24pt;
-  width: fit-content;
   margin: auto;
+  width: fit-content;
+  text-align: left;
 }
 
 .contract-variant {
@@ -101,9 +101,9 @@ label {
 }
 
 .cat-card-column {
-  width: fit-content;
   margin: auto;
   margin-bottom: 10pt;
+  width: fit-content;
 }
 
 .centre-column {
@@ -111,11 +111,11 @@ label {
 }
 
 .list-container {
-  text-align: left;
-  width: 60%;
-  min-width: 300pt;
   margin: auto;
   margin-bottom: 30pt;
+  min-width: 300pt;
+  text-align: left;
+  width: 60%;
 }
 
 .item-container {
@@ -125,32 +125,32 @@ label {
 .side-img {
   border-radius: 10pt;
   display: block;
-  max-width: 90%;
   height: auto;
   margin: auto;
   margin-bottom: 20pt;
+  max-width: 90%;
   object-fit: contain;
 }
 
 .bottom-img {
-  width: 30%;
-  min-width: 100pt;
   margin: 10pt;
   margin-bottom: 30pt;
+  min-width: 100pt;
+  width: 30%;
 }
 
 .centre-img {
   border-radius: 10pt;
   display: block;
-  max-width: 100%;
   height: auto;
-  object-fit: contain;
   margin-left: 10%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .video-frame {
-  width: 100%;
   aspect-ratio: 3 / 2;
+  width: 100%;
 }
 
 .pdf-container {
@@ -172,8 +172,8 @@ label {
 }
 
 .logo-brand {
-  height: 100%;
   display: flex;
+  height: 100%;
   text-decoration: none;
 }
 
@@ -183,8 +183,8 @@ label {
 }
 
 .logo-text {
-  font-size: x-large;
   color: var(--nav-white);
+  font-size: x-large;
   font-style: italic;
   height: auto;
   line-height: normal;
@@ -194,8 +194,8 @@ label {
 
 .nav-link {
   color: var(--nav-white) !important;
-  padding: 10pt 15pt;
   cursor: pointer;
+  padding: 10pt 15pt;
   text-decoration: none;
 }
 
@@ -205,9 +205,9 @@ label {
 
 .dropdown-menu {
   background-color: var(--nav-black);
-  text-align: center;
   padding-left: 5pt;
   padding-right: 5pt;
+  text-align: center;
 }
 
 .dropdown-link {
@@ -219,18 +219,18 @@ label {
 
 .footer {
   background-color: var(--nav-black);
-  width: 100%;
   bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .cert-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: safe center;
   margin: auto;
-  flex-wrap: wrap;
 }
 
 .cert-container::-webkit-scrollbar {
@@ -239,28 +239,28 @@ label {
 
 .cert {
   height: 50pt;
-  width: auto;
   margin: 10pt;
+  width: auto;
 }
 
 .social-container {
   display: flex;
-  justify-content: center;
   font-size: 2rem;
+  justify-content: center;
 }
 
 .social-icon {
+  color: var(--text-white);
   margin-left: 5pt;
   margin-right: 5pt;
-  color: var(--text-white);
 }
 
 /* Cat cards */
 
 .cat-card-carousel-container {
-  width: 95%;
-  padding: 10pt;
   margin-top: 20pt;
+  padding: 10pt;
+  width: 95%;
 }
 
 .cat-card-carousel {
@@ -271,19 +271,19 @@ label {
 
 .card-container {
   border-radius: 10pt;
-  width: 95%;
   margin: auto;
   margin-bottom: 10pt;
+  width: 95%;
 }
 
 .cat-card {
+  background-color: var(--text-white);
   border-radius: 15pt;
   cursor: pointer;
-  background-color: var(--text-white);
-  text-align: center;
-  width: 90%;
   margin-left: 5pt;
+  text-align: center;
   transition: margin .25s;
+  width: 90%;
 }
 
 .cat-card:hover {
@@ -292,16 +292,16 @@ label {
 }
 
 .cat-img {
-  width: 90%;
+  cursor: pointer;
   border-radius: 10pt;
   margin: auto;
-  cursor: pointer;
+  width: 90%;
 }
 
 .placeholder-img {
-  width: 40%;
-  min-width: 200pt;
   cursor: default;
+  min-width: 200pt;
+  width: 40%;
 }
 
 .modal-img {
@@ -311,8 +311,8 @@ label {
 
 .card-img {
   aspect-ratio: 5 / 4;
-  object-fit: cover;
   margin-top: 5%;
+  object-fit: cover;
 }
 
 .cat-text {
@@ -361,9 +361,9 @@ label {
 }
 
 .carousel-container {
-  width: 100%;
   margin: auto;
   margin-bottom: 10pt;
+  width: 100%;
 }
 
 .kitten-images-container {
@@ -382,11 +382,11 @@ label {
 
 .accordion {
   border-radius: 10pt;
-  width: 95%;
-  max-width: 80rem;
   margin: auto;
   margin-top: 30pt;
   margin-bottom: 30pt;
+  max-width: 80rem;
+  width: 95%;
 }
 
 .accordion-button {
@@ -405,10 +405,10 @@ label {
 }
 
 .accordion-header-text {
-  margin-top: 5pt;
-  margin-bottom: 5pt;
   font-size: large;
   font-weight: bold;
+  margin-top: 5pt;
+  margin-bottom: 5pt;
 }
 
 .accordion-selection-count {
@@ -417,29 +417,29 @@ label {
 }
 
 .accordion-item {
-  color: var(--text-white);
   background-color: var(--background-black);
-  text-align: left;
+  color: var(--text-white);
   margin-bottom: 0;
+  text-align: left;
 }
 
 /* Kitten gallery */
 
 .gallery-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15pt;
-  width: 95%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: center;
   margin: auto;
   margin-top: 20pt;
   margin-bottom: 20pt;
+  width: 95%;
 }
 
 .filter-accordion {
-  width: 50%;
   min-width: 260pt;
   text-align: center;
+  width: 50%;
 }
 
 .parent-accordions-container {
@@ -447,9 +447,9 @@ label {
 }
 
 .parent-accordion {
-  width: 100%;
   margin-top: 5pt;
   margin-bottom: 5pt;
+  width: 100%;
 }
 
 .checkbox {
@@ -457,15 +457,15 @@ label {
 }
 
 .filter-warning {
-  width: fit-content;
-  padding: 10pt;
-  padding-bottom: 5pt;
-  margin: auto;
-  margin-top: -10pt;
-  text-align: center;
+  background-color: var(--text-white);
   border-radius: 20pt;
   color: var(--text-black);
-  background-color: var(--text-white);
+  margin: auto;
+  margin-top: -10pt;
+  padding: 10pt;
+  padding-bottom: 5pt;
+  text-align: center;
+  width: fit-content;
 }
 
 .selection-warning {
@@ -473,18 +473,18 @@ label {
 }
 
 .video-frame-container {
-  width: 80%;
   margin: auto;
   margin-top: 2%;
+  width: 80%;
 }
 
 /* Forms */
 
 .form-container {
-  margin-top: -10pt;
-  margin-bottom: 10pt;
   display: flex;
   flex-direction: column;
+  margin-top: -10pt;
+  margin-bottom: 10pt;
 }
 
 .form-label {
@@ -493,22 +493,22 @@ label {
 }
 
 .form-input {
-  width: 200pt;
+  border-radius: 10pt;
   margin: auto;
   padding: 2pt;
   padding-left: 4pt;
   padding-right: 4pt;
-  border-radius: 10pt;
+  width: 200pt;
 }
 
 .form-button {
-  padding-left: 20pt;
-  padding-right: 20pt;
   background-color: var(--accent-green);
-  margin-top: 15pt;
-  margin-bottom: 15pt;
   border: none;
   border-radius: 10pt;
+  margin-top: 15pt;
+  margin-bottom: 15pt;
+  padding-left: 20pt;
+  padding-right: 20pt;
 }
 
 .form-button:hover {
@@ -516,17 +516,17 @@ label {
 }
 
 .form-alert {
-  color: var(--text-black);
   background-color: var(--text-white);
   border-radius: 15pt;
+  color: var(--text-black);
 }
 
 .form-alert-button {
-  color: var(--text-white) !important;
   background-color: var(--accent-green) !important;
+  border-radius: 10pt !important;
+  color: var(--text-white) !important;
   padding-left: 20pt !important;
   padding-right: 20pt !important;
-  border-radius: 10pt !important;
 }
 
 /* Cat Table */
