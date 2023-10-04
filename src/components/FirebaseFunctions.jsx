@@ -38,7 +38,7 @@ export async function insertCat(table, cat) {
             await updateDoc(docRef, {
                 [key]: cat[key]
             });
-            
+            window.location.reload();
         }
     });
 }
@@ -73,7 +73,7 @@ export async function deleteCat(table, cat) {
     const id = cat.id;
 
     await deleteDoc(doc(db, table, id));
-    window.location.reload(false);
+    window.location.reload();
 }
 
 export async function getImage(filepath) {
