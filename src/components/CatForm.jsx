@@ -88,14 +88,14 @@ const CatForm = ({ cat = defaultCat }) => {
     }
 
     const handleUpdate = async () => {
-        updateCat(`${type}s`, newCat);
         if (type === 'parent') {
             updateChildren(cat.name, newCat.name, cat.sex);
         }
         if (newImages.length > 0) {
             uploadImages(getCatFilepath(newCat), newImages);
         }
-        alert('Cat updated. Please refresh page to see changes.');
+        updateCat(`${type}s`, newCat);
+        //alert('Cat updated. Please refresh page to see changes.');
         //window.location.reload(false);
     }
 
