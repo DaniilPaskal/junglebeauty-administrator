@@ -37,7 +37,8 @@ export async function insertCat(table, cat) {
         if (cat[key].length > 0) {
             await updateDoc(docRef, {
                 [key]: cat[key]
-            })
+            });
+            
         }
     });
 }
@@ -50,7 +51,8 @@ export async function updateCat(table, cat) {
         if (cat[key].length > 0) {
             await updateDoc(docRef, {
                 [key]: cat[key]
-            })
+            });
+            window.location.reload();
         } 
     });
 }
