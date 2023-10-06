@@ -38,7 +38,6 @@ export async function insertCat(table, cat) {
             await updateDoc(docRef, {
                 [key]: cat[key]
             });
-            window.location.reload();
         }
     });
 }
