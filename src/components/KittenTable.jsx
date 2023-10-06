@@ -120,7 +120,7 @@ const KittenTable = ({ kittens, parents }) => {
         </Accordion.Item>
       </Accordion>
 
-      <Table className='cat-table' striped bordered hover>
+      <Table className='cat-table' bordered hover>
         <thead>
           <tr>
             <th onClick={() => changeSort('id')}>ID</th>
