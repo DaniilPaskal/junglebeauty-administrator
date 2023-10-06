@@ -25,7 +25,7 @@ const ParentTable = ({ parents }) => {
   }
 
   return (
-    <Table className='cat-table' striped bordered hover>
+    <Table className='cat-table' bordered hover>
         <thead>
             <tr>
             <th onClick={() => changeSort('id')}>ID</th>
