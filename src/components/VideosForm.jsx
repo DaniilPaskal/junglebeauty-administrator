@@ -11,9 +11,9 @@ const defaultItem = {
 
 const VideosForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(item);
-    const { title, body, date } = newItem;
+    const { desc, video_id } = newItem;
     const videos = useLists().videos;
-
+console.log(item)
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -56,13 +56,13 @@ const VideosForm = ({ item = defaultItem }) => {
                 <label className='form-label'>
                     Description:
                     <br />
-                    <input name='desc' type='text' defaultValue={title} onChange={handleChange} />
+                    <textarea name='desc' type='text' defaultValue={desc} onChange={handleChange} />
                 </label>
                 <br />
                 <label className='form-label'>
                     Video ID:
                     <br />
-                    <input name='video-id' type='text' defaultValue={body} onChange={handleChange} />
+                    <input name='video-id' type='text' defaultValue={item['video-id']} onChange={handleChange} />
                 </label>
 
                 <div className='buttons-container'>
