@@ -14,7 +14,7 @@ const ListTable = ({ list, type }) => {
     return (
         <>
             <button type='button' onClick={handleShow}>Add list item</button>
-            <Table striped bordered hover>
+            <Table className='cat-table' bordered hover>
                 <thead>
                     <tr>
                     {Object.keys(list[0]).map((key) => {
