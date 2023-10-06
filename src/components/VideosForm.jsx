@@ -13,7 +13,7 @@ const VideosForm = ({ item = defaultItem }) => {
     const [newItem, setNewItem] = useState(item);
     const { desc, video_id } = newItem;
     const videos = useLists().videos;
-console.log(item)
+
     const handleChange = (event) => {
         const { name, value } = event.target;
 
