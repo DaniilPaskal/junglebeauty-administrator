@@ -67,11 +67,11 @@ const ArticlesForm = ({ item = defaultItem }) => {
                 <div className='buttons-container'>
                     {item === defaultItem
                         ?
-                            <button type='button' onClick={handleAdd}>Add item</button>
+                            <button type='button' className='form-button' onClick={handleAdd}>Add item</button>
                         :
                         <>
-                            <button type='button' onClick={handleUpdate}>Update item</button>
-                            <button type='button' onClick={handleDelete}>Delete item</button>
+                            <button type='button' className='form-button' onClick={handleUpdate}>Update item</button>
+                            <button type='button' className='form-button' onClick={handleDelete}>Delete item</button>
                         </>
                 }
                 </div>
