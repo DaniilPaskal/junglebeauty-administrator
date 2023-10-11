@@ -13,7 +13,7 @@ const ListTable = ({ list, type }) => {
 
     return (
         <>
-            <button type='button' onClick={handleShow}>Add list item</button>
+            <button type='button' className='form-button' onClick={handleShow}>Add list item</button>
             <Table className='cat-table' bordered hover>
                 <thead>
                     <tr>
