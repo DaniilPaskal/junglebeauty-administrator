@@ -505,6 +505,7 @@ label {
   background-color: var(--accent-green);
   border: none;
   border-radius: 10pt;
+  color: var(--text-white);
   margin-top: 15pt;
   margin-bottom: 15pt;
   padding-left: 20pt;
