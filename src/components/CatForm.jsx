@@ -114,162 +114,123 @@ const CatForm = ({ cat = defaultCat }) => {
         <div className='form-container'>
             <form>
                 {cat === defaultCat &&
-                    <div>
-                        <label className='form-label'>
-                            Cat type:
-                            <br />
-                            <select name='type' value={type} onChange={changeType}>
-                                <option value='kitten'>Kitten</option>
-                                <option value='parent'>Parent</option>
-                            </select>
-                        </label>
-                    </div>
+                    <>
+                        <label className='form-label' for='type'>Cat type:</label>
+                        <select name='type' id='type' value={type} onChange={changeType}>
+                            <option value='kitten'>Kitten</option>
+                            <option value='parent'>Parent</option>
+                        </select>
+                    </>
                 }
-                    
-                <div>
-                    <label className='form-label'>
-                        Name:
-                        <br />
-                        <input name='name' type='text' defaultValue={name} onChange={handleChange} />
-                    </label>
-                    <br />
-                    <label className='form-label'>
-                        Date of birth:
-                        <br />
-                        <input name='date' type='date' defaultValue={date} onChange={handleChange} />
-                    </label>
-                    <br />
-                    <label className='form-label'>
-                        Sex:
-                        <br />
-                        <select name='sex' defaultValue={sex} onChange={handleChange}>
-                            <option value='male'>Male</option>
-                            <option value='female'>Female</option>
-                        </select>
-                    </label>
-                    <br />
-                    <label className='form-label'>
-                        Status:
-                        <br />
-                        <select name='status' defaultValue={status} onChange={handleChange}>
-                            {type === 'kitten'
-                            ?
-                            <>
-                                <option value='available'>Available</option>
-                                <option value='reserved'>Reserved</option>
-                                <option value='graduated'>Graduated</option>
-                            </>
-                            :
-                            <>
-                                <option value='active'>Active</option>
-                                <option value='retired'>Retired</option>
-                            </>
-                            }
-                            <option value='no'>Null</option>
-                        </select>
-                    </label>
-                    <br />
-                    <label className='form-label'>
-                        Descriptor:
-                        <br />
-                        <input name='adj' type='text' defaultValue={adj} onChange={handleChange} />
-                    </label>
-                    <br />
-                    <label className='form-label'>
-                        Fur colour:
-                        <br />
-                        <select name='colour' defaultValue={colour} onChange={handleChange}>
-                            <option value='silver'>Silver</option>
-                            <option value='brown'>Brown</option>
-                        </select>
-                    </label>
-                </div>
 
-                <div>
+                <label className='form-label' for='name'>Name:</label>
+                <input name='name' id='name' type='text' defaultValue={name} onChange={handleChange} />
+
+                <label className='form-label' for='date'>Date of birth:</label>
+                <input name='date' id='date' type='date' defaultValue={date} onChange={handleChange} />
+
+                <label className='form-label' for='sex'>Sex:</label>
+                <select name='sex' id='sex' defaultValue={sex} onChange={handleChange}>
+                    <option value='male'>Male</option>
+                    <option value='female'>Female</option>
+                </select>
+
+                <label className='form-label' for='status'>Status:</label>
+                <select name='status' id='status' defaultValue={status} onChange={handleChange}>
                     {type === 'kitten'
                     ?
                     <>
-                        <label className='form-label'>
-                            Mother: {mother}
-                            <br />
-                            <select name='mother' defaultValue={mother} onChange={handleChange}>
-                                {queens.map((queen) => {
-                                    return (
-                                        <option value={queen.name} key={queen.id}>{queen.name}</option>
-                                    );
-                                })}
-                            </select>
-                        </label>
-                        <br />
-                        <label className='form-label'>
-                            Father: {father}
-                            <br />
-                            <select name='father' defaultValue={father} onChange={handleChange}>
-                                {kings.map((king) => {
-                                    return (
-                                        <option value={king.name} key={king.id}>{king.name}</option>
-                                    );
-                                })}
-                            </select>
-                        </label>
+                        <option value='available'>Available</option>
+                        <option value='reserved'>Reserved</option>
+                        <option value='graduated'>Graduated</option>
                     </>
                     :
                     <>
-                        <label className='form-label'>
-                            Cattery:
-                            <br />
-                            <input name='cattery' type='text' defaultValue={cattery} onChange={handleChange} />
-                        </label>
-                        <br />
-                        <label className='form-label'>
-                            Location:
-                            <br />
-                            <input name='location' type='text' defaultValue={location} onChange={handleChange} />
-                        </label>
+                        <option value='active'>Active</option>
+                        <option value='retired'>Retired</option>
                     </>
                     }
-                </div>
+                    <option value='no'>Null</option>
+                </select>
 
-                <div>
-                    <label className='form-label'>
-                        Images:
-                        <br />
-                        <input name='images' type='file' accept='image/*' multiple onChange={handleImageSelect}/>
-                        <button type='button' className='form-button' onClick={handleImageClear}>Clear</button>
-                    </label>
-                </div>
+                <label className='form-label' for='adj'>Descriptor:</label>
+                <input name='adj' id='adj' type='text' defaultValue={adj} onChange={handleChange} />
 
-                <div>
-                    <label className='form-label'>
-                        Video:
+                <label className='form-label' for='colour'>Fur colour:</label>
+                <select name='colour' id='colour' defaultValue={colour} onChange={handleChange}>
+                    <option value='silver'>Silver</option>
+                    <option value='brown'>Brown</option>
+                </select>        
+
+                {type === 'kitten'
+                ?
+                <>
+                    <label className='form-label' for='mother'>
+                        Mother: {mother}
                         <br />
-                        <input name='video' type='text' defaultValue={video} onChange={handleChange} />
-                        {/*
-                        <table>
-                            {videos.map((video) => {
-                                <tr>{video}</tr>
+                        <select name='mother' id='mother' defaultValue={mother} onChange={handleChange}>
+                            {queens.map((queen) => {
+                                return (
+                                    <option value={queen.name} key={queen.id}>{queen.name}</option>
+                                );
                             })}
-                            <tr>
-                                <input name='video' type='url' onChange={handleVideoChange} />
-                            </tr>
-                        </table>
-                        */}
+                        </select>
                     </label>
-                </div>
-            </form>
+                    <br />
+                    <label className='form-label' for='father'>
+                        Father: {father}
+                        <br />
+                        <select name='father' id='father' defaultValue={father} onChange={handleChange}>
+                            {kings.map((king) => {
+                                return (
+                                    <option value={king.name} key={king.id}>{king.name}</option>
+                                );
+                            })}
+                        </select>
+                    </label>
+                </>
+                :
+                <>
+                    <label className='form-label'>
+                        Cattery:
+                        <br />
+                        <input name='cattery' type='text' defaultValue={cattery} onChange={handleChange} />
+                    </label>
+                    <br />
+                    <label className='form-label'>
+                        Location:
+                        <br />
+                        <input name='location' type='text' defaultValue={location} onChange={handleChange} />
+                    </label>
+                </>
+                }
+
+                <label className='form-label' for='images'>Images:</label>
+                <input name='images' id='images' type='file' accept='image/*' multiple onChange={handleImageSelect}/>
+                <button type='button' className='form-button' onClick={handleImageClear}>Clear</button>
+
+                <label className='form-label' form='video'>Video:</label>
+                <input name='video' id='video' type='text' defaultValue={video} onChange={handleChange} />
+                {/*
+                <table>
+                    {videos.map((video) => {
+                        <tr>{video}</tr>
+                    })}
+                    <tr>
+                        <input name='video' type='url' onChange={handleVideoChange} />
+                    </tr>
+                </table>
+                */}
 
             <div className='carousel-container'>
                 {cat !== defaultCat && <ImageCarousel images={[...images, newImages]} />}
             </div>
 
-            <label className='form-label'>
-                Show:
-                <br />
-                <select name='show' defaultValue={show} onChange={handleChange}>
-                    <option value={'true'}>True</option>
-                    <option value={'false'}>False</option>
-                </select>
-            </label>
+            <label className='form-label' for='show'>Show:</label>
+            <select name='show' id='show' defaultValue={show} onChange={handleChange}>
+                <option value={'true'}>True</option>
+                <option value={'false'}>False</option>
+            </select>
 
             <div className='buttons-container'>
                 {cat === defaultCat
@@ -282,6 +243,7 @@ const CatForm = ({ cat = defaultCat }) => {
                 </>
                 }
             </div>
+            </form>
         </div>
     );
 };
