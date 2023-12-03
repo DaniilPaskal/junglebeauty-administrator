@@ -53,17 +53,11 @@ const VideosForm = ({ item = defaultItem }) => {
     return (
         <div className='form-container'>
             <form>
-                <label className='form-label'>
-                    Description:
-                    <br />
-                    <textarea name='desc' type='text' defaultValue={desc} onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Video ID:
-                    <br />
-                    <input name='video-id' type='text' defaultValue={item['video-id']} onChange={handleChange} />
-                </label>
+                <label className='form-label' for='desc'>Description:</label>
+                <textarea name='desc' id='desc' type='text' defaultValue={desc} onChange={handleChange} />
+
+                <label className='form-label' for='video-id'>Video ID:</label>
+                <input name='video-id' for='video-id' type='text' defaultValue={item['video-id']} onChange={handleChange} />
 
                 <div className='buttons-container'>
                     {item === defaultItem
@@ -74,7 +68,7 @@ const VideosForm = ({ item = defaultItem }) => {
                             <button type='button' className='form-button' onClick={handleUpdate}>Update item</button>
                             <button type='button' className='form-button' onClick={handleDelete}>Delete item</button>
                         </>
-                }
+                    }
                 </div>
             </form>
         </div>
