@@ -46,23 +46,14 @@ const ArticlesForm = ({ item = defaultItem }) => {
     return (
         <div className='form-container'>
             <form>
-                <label className='form-label'>
-                    Title:
-                    <br />
-                    <input name='title' type='text' defaultValue={title} onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Body:
-                    <br />
-                    <textarea name='body' defaultValue={body} onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Date:
-                    <br />
-                    <input name='date' type='date' defaultValue={date} onChange={handleChange} />
-                </label>
+                <label className='form-label' for='title'>Title:</label>
+                <input name='title' id='title' type='text' defaultValue={title} onChange={handleChange} />
+
+                <label className='form-label' for='body'>Body:</label>
+                <textarea name='body' id='body' defaultValue={body} onChange={handleChange} />
+
+                <label className='form-label' for='date'>Date:</label>
+                <input name='date' id='date' type='date' defaultValue={date} onChange={handleChange} />
 
                 <div className='buttons-container'>
                     {item === defaultItem
@@ -73,7 +64,7 @@ const ArticlesForm = ({ item = defaultItem }) => {
                             <button type='button' className='form-button' onClick={handleUpdate}>Update item</button>
                             <button type='button' className='form-button' onClick={handleDelete}>Delete item</button>
                         </>
-                }
+                    }
                 </div>
             </form>
         </div>
