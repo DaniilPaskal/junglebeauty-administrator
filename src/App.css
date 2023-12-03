@@ -485,6 +485,9 @@ label {
   flex-direction: column;
   margin-top: -10pt;
   margin-bottom: 10pt;
+  padding: 10pt;
+  text-align: center;
+  width: 95%;
 }
 
 .form-label {
