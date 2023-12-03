@@ -53,55 +53,37 @@ const NewsForm = ({ item = defaultItem }) => {
     return (
         <div className='form-container'>
             <form>
-                <label className='form-label'>
-                    Title:
-                    <br />
-                    <input name='title' type='text' defaultValue={title} onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Body:
-                    <br />
-                    <textarea name='body' defaultValue={body} onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Date:
-                    <br />
-                    <input name='date' type='date' defaultValue={date} onChange={handleChange} />
-                </label>
-                <br />
-                <label className='form-label'>
-                    Type:
-                    <br />
-                    <select name='type' defaultValue={type} onChange={handleChange}>
-                        <option value='litter'>Litter</option>
-                    </select>
-                </label>
-                <br />
-                <label className='form-label'>
-                    Father: {king}
-                    <br />
-                    <select name='king' defaultValue={king} onChange={handleChange}>
-                        {kings.map((cat) => {
-                            return (
-                                <option value={cat.name} key={cat.id}>{cat.name}</option>
-                            );
-                        })}
-                    </select>
-                </label>
-                <br />
-                <label className='form-label'>
-                    Queen: {queen}
-                    <br />
-                    <select name='queen' defaultValue={queen} onChange={handleChange}>
-                        {queens.map((cat) => {
-                            return (
-                                <option value={cat.name} key={cat.id}>{cat.name}</option>
-                            );
-                        })}
-                    </select>
-                </label>
+                <label className='form-label' for='title'>Title:</label>
+                <input name='title' id='title' type='text' defaultValue={title} onChange={handleChange} />
+
+                <label className='form-label' for='body'>Body:</label>
+                <textarea name='body' id='body' defaultValue={body} onChange={handleChange} />
+
+                <label className='form-label' for='date'>Date:</label>
+                <input name='date' id='date' type='date' defaultValue={date} onChange={handleChange} />
+
+                <label className='form-label' for='type'>Type:</label>
+                <select name='type' id='type' defaultValue={type} onChange={handleChange}>
+                    <option value='litter'>Litter</option>
+                </select>
+
+                <label className='form-label' for='king'>Father: {king}</label>
+                <select name='king' id='king' defaultValue={king} onChange={handleChange}>
+                    {kings.map((cat) => {
+                        return (
+                            <option value={cat.name} key={cat.id}>{cat.name}</option>
+                        );
+                    })}
+                </select>
+
+                <label className='form-label' for='queen'>Queen: {queen}</label>
+                <select name='queen' id='queen' defaultValue={queen} onChange={handleChange}>
+                    {queens.map((cat) => {
+                        return (
+                            <option value={cat.name} key={cat.id}>{cat.name}</option>
+                        );
+                    })}
+                </select>
 
                 <div className='buttons-container'>
                     {item === defaultItem
@@ -112,7 +94,7 @@ const NewsForm = ({ item = defaultItem }) => {
                             <button type='button' className='form-button' onClick={handleUpdate}>Update item</button>
                             <button type='button' className='form-button' onClick={handleDelete}>Delete item</button>
                         </>
-                }
+                    }
                 </div>
             </form>
         </div>
