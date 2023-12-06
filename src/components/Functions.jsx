@@ -16,7 +16,7 @@ export function getCatFilepath(cat) {
   const name = idValues[0];
   const date = idValues[1];
   const type = (mother ? `Kitten` : `${sex === 'male' ? `King` : `Queen`}`);
-  const filepath = `${type}s/${type === 'Kitten' && `${date}/`}${name}/`;
+  const filepath = `${type}s/${type === 'Kitten' ? `${date}/` : ``}${name}/`;
 
   return filepath;
 }
