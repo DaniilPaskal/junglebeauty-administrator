@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Table, Accordion, Button } from 'react-bootstrap';
 import { capitalize } from './Functions';
+import { useSettings } from '../contexts/SettingsContext';
 import CatRow from './CatRow';
 import Checkbox from './Checkbox';
 import './../App.css';
@@ -8,16 +9,9 @@ import './../App.css';
 const KittenTable = ({ kittens, parents }) => {
   const [sort, setSort] = useState('date');
   const [order, setOrder] = useState('des');
-  const [filters, setFilters] = useState({colour: [], father: [], mother: [], status: [], sex: []});
-  const colours = ['silver', 'brown'];
-  const statuses = ['available', 'reserved', 'graduated'];
-  const sexes = ['male', 'female'];
+  const filters = useSettings();
 
   kittens.sort((a,b) => a[sort] > b[sort] ? -1 : 1);
-
-  useEffect(() => {
-    setFilters({colour: colours, father: parents.filter((cat) => cat.sex === 'male').map((cat) => {return cat.name}), mother: parents.filter((cat) => cat.sex === 'female').map((cat) => {return cat.name}), status: statuses, sex: sexes});
-  }, [kittens])
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,14 +22,14 @@ const KittenTable = ({ kittens, parents }) => {
     } else {
       filterArray.push(value);
     }
-    setFilters({ ...filters, [name]: filterArray});
+    filters = { ...filters, [name]: filterArray};
   }
 
   const toggleAll = () => {
     if (filters['colour'].length > 0 || filters['father'].length > 0 || filters['mother'].length > 0 || filters['status'].length > 0) {
-      setFilters({colour: [], father: [], mother: [], status: [], sex: []});
+      filters = {colour: [], father: [], mother: [], status: [], sex: []};
     } else {
-      setFilters({colour: colours, father: parents.filter((cat) => cat.sex === 'male').map((cat) => {return cat.name}), mother: parents.filter((cat) => cat.sex === 'female').map((cat) => {return cat.name}), status: statuses, sex: sexes});
+      filters = {colour: colours, father: parents.filter((cat) => cat.sex === 'male').map((cat) => {return cat.name}), mother: parents.filter((cat) => cat.sex === 'female').map((cat) => {return cat.name}), status: statuses, sex: sexes};
     }
   }
 
