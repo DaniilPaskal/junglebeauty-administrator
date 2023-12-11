@@ -10,6 +10,9 @@ const KittenTable = ({ kittens, parents }) => {
   const [sort, setSort] = useState('date');
   const [order, setOrder] = useState('des');
   const filters = useSettings();
+  const colours = ['silver', 'brown'];
+  const statuses = ['available', 'reserved', 'graduated'];
+  const sexes = ['male', 'female'];
 
   kittens.sort((a,b) => a[sort] > b[sort] ? -1 : 1);
 
