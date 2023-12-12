@@ -110,9 +110,9 @@ const CatForm = ({ cat = defaultCat }) => {
     }
     */
 
-    return (
-        <div className='form-container'>
-            <form>
+    return (   
+        <form>
+            <div className='form-container'>
                 {cat === defaultCat &&
                     <>
                         <label className='form-label' for='type'>Cat type:</label>
@@ -222,29 +222,29 @@ const CatForm = ({ cat = defaultCat }) => {
                 </table>
                 */}
 
-            <div className='carousel-container'>
-                {cat !== defaultCat && <ImageCarousel images={[...images, newImages]} />}
-            </div>
+                <div className='carousel-container'>
+                    {cat !== defaultCat && <ImageCarousel images={[...images, newImages]} />}
+                </div>
 
-            <label className='form-label' for='show'>Show:</label>
-            <select name='show' id='show' defaultValue={show} onChange={handleChange}>
-                <option value={'true'}>True</option>
-                <option value={'false'}>False</option>
-            </select>
+                <label className='form-label' for='show'>Show:</label>
+                <select name='show' id='show' defaultValue={show} onChange={handleChange}>
+                    <option value={'true'}>True</option>
+                    <option value={'false'}>False</option>
+                </select>
 
-            <div className='buttons-container'>
-                {cat === defaultCat
-                ?
-                    <button type='button' className='form-button' onClick={handleAdd}>Add cat</button>
-                :
-                <>
-                    <button type='button' className='form-button' onClick={handleUpdate}>Update cat</button>
-                    <button type='button' className='form-button' onClick={handleDelete}>Delete cat</button>
-                </>
-                }
+                <div className='buttons-container'>
+                    {cat === defaultCat
+                    ?
+                        <button type='button' className='form-button' onClick={handleAdd}>Add cat</button>
+                    :
+                    <>
+                        <button type='button' className='form-button' onClick={handleUpdate}>Update cat</button>
+                        <button type='button' className='form-button' onClick={handleDelete}>Delete cat</button>
+                    </>
+                    }
+                </div>
             </div>
-            </form>
-        </div>
+        </form>
     );
 };
 
