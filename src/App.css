@@ -481,6 +481,8 @@ label {
 /* Forms */
 
 .form-container {
+  display: flex;
+  flex-direction: column;
   margin-top: -10pt;
   margin-bottom: 10pt;
   padding: 10pt;
