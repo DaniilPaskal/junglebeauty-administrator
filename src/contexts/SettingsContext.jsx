@@ -25,8 +25,8 @@ export function SettingsProvider({ children }) {
             mother: parents.filter((cat) => cat.sex === 'female').map((cat) => {return cat.name}),
             status: statuses,
             sex: sexes
-        });
-    }, []);
+        }, [filters]);
+    });
 
     return (
         <SettingsContext.Provider value={filters}>
