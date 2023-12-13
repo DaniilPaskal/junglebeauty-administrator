@@ -44,8 +44,8 @@ const ArticlesForm = ({ item = defaultItem }) => {
     }
 
     return (
-        <div className='form-container'>
-            <form>
+        <form>
+            <div className='form-container'>
                 <label className='form-label' for='title'>Title:</label>
                 <input name='title' id='title' type='text' defaultValue={title} onChange={handleChange} />
 
@@ -66,8 +66,8 @@ const ArticlesForm = ({ item = defaultItem }) => {
                         </>
                     }
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     );
 };
 
