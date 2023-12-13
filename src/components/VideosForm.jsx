@@ -51,8 +51,8 @@ const VideosForm = ({ item = defaultItem }) => {
     }
 
     return (
-        <div className='form-container'>
-            <form>
+        <form>
+            <div className='form-container'>
                 <label className='form-label' for='desc'>Description:</label>
                 <textarea name='desc' id='desc' type='text' defaultValue={desc} onChange={handleChange} />
 
@@ -70,8 +70,8 @@ const VideosForm = ({ item = defaultItem }) => {
                         </>
                     }
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     );
 };
 
