@@ -505,6 +505,11 @@ label {
   width: 200pt;
 }
 
+.buttons-container {
+  display: flex;
+  padding: 5pt;
+}
+
 .form-button {
   background-color: var(--accent-green);
   border: none;
